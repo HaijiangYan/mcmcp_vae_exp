@@ -27,7 +27,7 @@ get_infos = function() {
       animal_1 = JSON.parse(resp.infos[1].contents);
 
       $.ajax({
-        url: 'https://mcmcp.herokuapp.com/fx/' + 1,  // 'index' here refers to face with a specific emotion
+        url: 'https://mcmcp-vae.herokuapp.com/fx/' + 1,  // 'index' here refers to face with a specific emotion
         method: 'POST',
         data: `{"data": [[${animal_0.x}, ${animal_0.y}, ${animal_0.z}], [${animal_1.x}, ${animal_1.y}, ${animal_1.z}]]}`,
         success: function (resp) {
@@ -80,7 +80,7 @@ drawAnimal = function (animal, side) {
 
   if (side === "left") {
     $.ajax({
-      url: 'https://mcmcp.herokuapp.com',
+      url: 'https://mcmcp-vae.herokuapp.com',
       method: 'POST',
       // headers: {'Access-Control-Allow-Origin': 'https://haijiangyan.github.io/' },
       // contentType: 'application/json',
@@ -96,7 +96,7 @@ drawAnimal = function (animal, side) {
   });
   } else if (side === "right") {
     $.ajax({
-      url: 'https://mcmcp.herokuapp.com',
+      url: 'https://mcmcp-vae.herokuapp.com',
       method: 'POST',
       // headers: {'Access-Control-Allow-Origin': 'https://haijiangyan.github.io/' },
       // contentType: 'application/json',

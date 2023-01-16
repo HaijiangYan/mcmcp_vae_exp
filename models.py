@@ -1,4 +1,6 @@
 import random
+from numpy.random import multivariate_normal
+from numpy import dot
 import json
 from sqlalchemy import Boolean
 from sqlalchemy.ext.hybrid import hybrid_property
@@ -112,15 +114,22 @@ class AnimalInfo(Info):
 
         super(AnimalInfo, self).__init__(origin, contents, **kwargs)
 
+    happy_cov_mat = [
+        [0.23980569, 0.03504322, 0.06949917], 
+        [0.03504322, 0.18401163, 0.09870955], 
+        [0.06949917, 0.09870955, 0.24646653]
+        ]
+    happy_prop_cov = (happy_cov_mat / 2) * (2.38 * 2.38 / 3)  # estimated covariance fxgx multiplied by the scale factor
+
     def perturbed_contents(self):
         """Perturb the given animal."""
         animal = json.loads(self.contents)
 
         rand = random.uniform(0, 1)
         if rand >= 0.1:
-            for prop, prop_value in animal.items():
-                jittered = prop_value + random.gauss(0, 2.38)  # 90% gaussian proposal
-                animal[prop] = jittered
+            proposal = multivariate_normal([animal['x'], animal['y'], animal['z']], self.happy_prop_cov, 1)
+            for n, prop in enumerate(animal.keys()):
+                animal[prop] = proposal[0, n]
         else:
             for prop, prop_value in animal.items():
                 jittered = random.uniform(-5, 5)  # 10% uniform proposal
