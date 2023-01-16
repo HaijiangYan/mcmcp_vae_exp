@@ -1,6 +1,6 @@
 import random
 from numpy.random import multivariate_normal
-from numpy import dot
+from numpy import array
 import json
 from sqlalchemy import Boolean
 from sqlalchemy.ext.hybrid import hybrid_property
@@ -114,11 +114,11 @@ class AnimalInfo(Info):
 
         super(AnimalInfo, self).__init__(origin, contents, **kwargs)
 
-    happy_cov_mat = [
+    happy_cov_mat = array([
         [0.23980569, 0.03504322, 0.06949917], 
         [0.03504322, 0.18401163, 0.09870955], 
         [0.06949917, 0.09870955, 0.24646653]
-        ]
+        ])
     happy_prop_cov = (happy_cov_mat / 2) * (2.38 * 2.38 / 3)  # estimated covariance fxgx multiplied by the scale factor
 
     def perturbed_contents(self):
