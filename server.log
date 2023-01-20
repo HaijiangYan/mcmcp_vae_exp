@@ -19609,3 +19609,253 @@ Worker exiting (pid: 60758)
 Worker exiting (pid: 60757)
 Worker exiting (pid: 60760)
 Shutting down: Master
+Current configuration:
+  config: ./gunicorn.conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:5000']
+  backlog: 2048
+  workers: 16
+  worker_class: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 0
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /private/var/folders/_q/444v3d_50fl01c2n80gtpq1m0000gn/T/tmp_5cdojvw/184704f4-eca6-f13e-4ca2-235699ccb30a
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: -
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: dallinger_experiment_server
+  default_proc_name: gunicorn
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x109f31160>
+  on_reload: <function OnReload.on_reload at 0x109f31280>
+  when_ready: <function when_ready at 0x106763940>
+  pre_fork: <function Prefork.pre_fork at 0x109f314c0>
+  post_fork: <function Postfork.post_fork at 0x109f315e0>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x109f31700>
+  worker_int: <function WorkerInt.worker_int at 0x109f31820>
+  worker_abort: <function WorkerAbort.worker_abort at 0x109f31940>
+  pre_exec: <function PreExec.pre_exec at 0x109f31a60>
+  pre_request: <function PreRequest.pre_request at 0x109f31b80>
+  post_request: <function PostRequest.post_request at 0x109f31c10>
+  child_exit: <function ChildExit.child_exit at 0x109f31d30>
+  worker_exit: <function WorkerExit.worker_exit at 0x109f31e50>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x109f31f70>
+  on_exit: <function OnExit.on_exit at 0x109f3e0d0>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+Starting gunicorn 20.1.0
+Arbiter booted
+Listening at: http://0.0.0.0:5000 (71351)
+Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+Booting worker with pid: 71358
+Booting worker with pid: 71359
+Booting worker with pid: 71360
+Booting worker with pid: 71361
+Booting worker with pid: 71362
+Booting worker with pid: 71363
+Booting worker with pid: 71364
+Booting worker with pid: 71365
+Booting worker with pid: 71366
+Booting worker with pid: 71367
+Booting worker with pid: 71368
+Booting worker with pid: 71369
+Booting worker with pid: 71370
+Booting worker with pid: 71371
+Booting worker with pid: 71372
+Booting worker with pid: 71373
+16 workers
+Handling signal: int
+Worker exiting (pid: 71358)
+Worker exiting (pid: 71360)
+Worker exiting (pid: 71370)
+Worker exiting (pid: 71367)
+Worker exiting (pid: 71359)
+Worker exiting (pid: 71366)
+Worker exiting (pid: 71364)
+Worker exiting (pid: 71368)
+Worker exiting (pid: 71363)
+Worker exiting (pid: 71365)
+Worker exiting (pid: 71371)
+Worker exiting (pid: 71373)
+Worker exiting (pid: 71362)
+Worker exiting (pid: 71372)
+Worker exiting (pid: 71369)
+Worker exiting (pid: 71361)
+Shutting down: Master
+Current configuration:
+  config: ./gunicorn.conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:5000']
+  backlog: 2048
+  workers: 16
+  worker_class: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 0
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /private/var/folders/_q/444v3d_50fl01c2n80gtpq1m0000gn/T/tmphp__l3cn/186e867d-4f2a-ea74-1927-ac355c5021d4
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: -
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: dallinger_experiment_server
+  default_proc_name: gunicorn
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x109dd5160>
+  on_reload: <function OnReload.on_reload at 0x109dd5280>
+  when_ready: <function when_ready at 0x106607940>
+  pre_fork: <function Prefork.pre_fork at 0x109dd54c0>
+  post_fork: <function Postfork.post_fork at 0x109dd55e0>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x109dd5700>
+  worker_int: <function WorkerInt.worker_int at 0x109dd5820>
+  worker_abort: <function WorkerAbort.worker_abort at 0x109dd5940>
+  pre_exec: <function PreExec.pre_exec at 0x109dd5a60>
+  pre_request: <function PreRequest.pre_request at 0x109dd5b80>
+  post_request: <function PostRequest.post_request at 0x109dd5c10>
+  child_exit: <function ChildExit.child_exit at 0x109dd5d30>
+  worker_exit: <function WorkerExit.worker_exit at 0x109dd5e50>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x109dd5f70>
+  on_exit: <function OnExit.on_exit at 0x109de20d0>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+Starting gunicorn 20.1.0
+Arbiter booted
+Listening at: http://0.0.0.0:5000 (95713)
+Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+Booting worker with pid: 95719
+Booting worker with pid: 95721
+Booting worker with pid: 95722
+Booting worker with pid: 95723
+Booting worker with pid: 95724
+Booting worker with pid: 95725
+Booting worker with pid: 95726
+Booting worker with pid: 95727
+Booting worker with pid: 95728
+Booting worker with pid: 95729
+Booting worker with pid: 95730
+Booting worker with pid: 95731
+Booting worker with pid: 95732
+Booting worker with pid: 95733
+Booting worker with pid: 95734
+Booting worker with pid: 95735
+16 workers
+Handling signal: int
+Worker exiting (pid: 95735)
+Worker exiting (pid: 95729)
+Worker exiting (pid: 95734)
+Worker exiting (pid: 95732)
+Worker exiting (pid: 95731)
+Worker exiting (pid: 95733)
+Worker exiting (pid: 95722)
+Worker exiting (pid: 95723)
+Worker exiting (pid: 95730)
+Worker exiting (pid: 95719)
+Worker exiting (pid: 95725)
+Worker exiting (pid: 95727)
+Worker exiting (pid: 95721)
+Worker exiting (pid: 95726)
+Worker exiting (pid: 95728)
+Worker exiting (pid: 95724)
+Shutting down: Master
