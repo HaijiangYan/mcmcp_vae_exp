@@ -1,20 +1,15 @@
 [Experiment]
 mode = sandbox
 auto_recruit = true
+recruiter = prolific
 
-[MTurk]
-title = Select the image
-description = Decide which image is a better match to a given category.
-keywords = vision, categorization, images
-base_payment = 1.00
-lifetime = 24
-duration = 0.1
-us_only = true
-approve_requirement = 95
-contact_email_on_error = mcmcp@mailinator.com
-ad_group = MCMCP
-organization_name = Monsters University
+[Prolific]
+title = Select the facial expression
+description = Decide which image is a better match to a given facial expression.
+prolific_estimated_completion_minutes = 120
+prolific_reward_cents = 0
 browser_exclude_rule = MSIE, mobile, tablet
+prolific_recruitment_config = file:prolific.json
 
 [Database]
 database_url = postgresql://postgres@localhost/dallinger
@@ -26,7 +21,7 @@ num_dynos_web = 1
 num_dynos_worker = 1
 redis_size = mini
 host = 0.0.0.0
-clock_on = false
+clock_on = true
 
 [Docker]
 docker_image_base_name = ghcr.io/dallinger/dallinger/mcmcp
