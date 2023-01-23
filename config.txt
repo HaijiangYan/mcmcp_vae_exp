@@ -11,6 +11,10 @@ prolific_reward_cents = 10
 browser_exclude_rule = MSIE, mobile, tablet
 prolific_recruitment_config = file:prolific_config.json
 
+[MTurk]
+base_payment = 1.00
+duration = 0.1
+
 [Database]
 database_url = postgresql://postgres@localhost/dallinger
 database_size = basic
