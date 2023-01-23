@@ -1,8 +1,8 @@
 {"eligibility_requirements": 
-  [{"attributes": 
-    [{"name": "white_list", "value": [ ]}], 
+  [{"attributes":
+    [{"name": "white_list", "value": []}],
   "_cls": "web.eligibility.models.CustomWhitelistEligibilityRequirement"}], 
 "prolific_id_option": "not_required", 
 "completion_code": "mcmcpww1", 
 "completion_option": "url", 
-"total_available_places": 10}
+"total_available_places": 2}

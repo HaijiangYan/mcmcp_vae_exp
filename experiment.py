@@ -50,7 +50,7 @@ class MCMCP(Experiment):
 
     def create_network(self):
         """Create a new network."""
-        return Chain(max_size=100)
+        return Chain(max_size=10000)
 
     def get_network_for_participant(self, participant):
         # human_nodes = Node.query.filter_by(participant_id=participant.id, human=True).all()
