@@ -31,7 +31,7 @@ class MCMCP(Experiment):
         from . import models
 
         self.models = models
-        self.experiment_repeats = 1
+        self.experiment_repeats = 2
         self.trials_per_participant = 10
         if session:
             self.setup()
@@ -50,7 +50,7 @@ class MCMCP(Experiment):
 
     def create_network(self):
         """Create a new network."""
-        return Chain(max_size=100)
+        return Chain(max_size=1000)
 
     def get_network_for_participant(self, participant):
         # human_nodes = Node.query.filter_by(participant_id=participant.id, human=True).all()

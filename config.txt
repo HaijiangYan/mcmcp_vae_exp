@@ -7,17 +7,25 @@ recruiter = prolific
 title = Select the facial expression
 description = Decide which image is a better match to a given facial expression.
 prolific_estimated_completion_minutes = 1
+prolific_maximum_allowed_minutes = 10
 prolific_reward_cents = 10
 browser_exclude_rule = MSIE, mobile, tablet
 prolific_recruitment_config = file:prolific_config.json
 
 [MTurk]
+keywords = vision, categorization, images
 base_payment = 1.00
+lifetime = 24
 duration = 0.1
+us_only = false
+approve_requirement = 95
+contact_email_on_error = mcmcp@mailinator.com
+ad_group = MCMCP
+organization_name = Monsters University
 
 [Database]
 database_url = postgresql://postgres@localhost/dallinger
-database_size = basic
+database_size = mini
 
 [Server]
 dyno_type = basic
