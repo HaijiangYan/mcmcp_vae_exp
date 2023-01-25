@@ -32,7 +32,7 @@ class MCMCP(Experiment):
 
         self.models = models
         self.experiment_repeats = 2
-        self.trials_per_participant = 10
+        self.trials_per_participant = 20
         if session:
             self.setup()
 

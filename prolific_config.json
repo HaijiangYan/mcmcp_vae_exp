@@ -1,14 +1,9 @@
 {"internal_name": "dallinger test", 
-"external_study_url": "https://mcpvae-experiment.com", 
 "prolific_id_option": "url_parameters", 
 "completion_code": "7EF9FD0D", 
 "completion_option": "url", 
-"device_compatibility": [
-"desktop"
-], 
+"device_compatibility": ["desktop"], 
 "eligibility_requirements": 
-[{"attributes": [{"name": "white_list", "value": prescreen}], 
-"_cls": "web.eligibility.models.CustomWhitelistEligibilityRequirement",}
-], 
-"prolific_id_option": "url_parameters", 
-"total_available_places": 2}
+[{"attributes": [{"name": "white_list", "value": [ ]}], 
+"_cls": "web.eligibility.models.CustomWhitelistEligibilityRequirement"}], 
+"total_available_places": 10}
