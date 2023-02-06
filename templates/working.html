@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+<!--
+  The consent.html displays the text of your IRB-approved
+  consent form.  Even if you are not required to provide
+  a consent form, it is helpful to use this form to
+  describe what people can do if an error comes up, etc...
+
+-->
+
+{% block body %}
+    <div class="main_div">
+        <noscript>
+            <h1>Warning: Javascript is not working on your browser</h1>
+            <p>The study will not work unless Javascript is enabled on your browser.</p>
+            <p>Please enable Javascript then refresh this page.<p>
+        </noscript>
+        <h1>Sorry, another participant is doing the task. Please come back later and try again. </h1>
+        <hr>
+        <div class="consent_div text-justify"><small>
+            <br>
+            {% block reject_button %}
+            <button type="button" class="btn btn-danger btn-lg" onClick="self.close();" style="float: left;">Return later
+            </button>
+            {% endblock reject_button %}
+        </div>
+    </div>
+{% endblock %}

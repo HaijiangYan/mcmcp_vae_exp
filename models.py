@@ -26,23 +26,93 @@ class MCMCPAgent(Agent):
         infos = self.infos()
         return [i for i in infos if i.chosen][0]
 
+    # Node-Property1
     @hybrid_property
     def human(self):
-        """Use property2 to store whether a chosen info was by human (True-human)."""
+        """Use property1 to store whether a chosen info was by human (True-human)."""
         try:
-            return bool(self.property2)
+            return bool(self.property1)
         except TypeError:
             return None
 
     @human.setter
     def human(self, human):
-        """Assign human to property2."""
-        self.property2 = repr(human)
+        """Assign human to property1."""
+        self.property1 = repr(human)
 
     @human.expression
     def human(self):
-        """Retrieve human via property2."""
-        return cast(self.property2, Boolean)
+        """Retrieve human via property1."""
+        return cast(self.property1, Boolean)
+
+    # Node-property2
+    @hybrid_property
+    def response_time(self):
+        """Use property2 to store RT."""
+        try:
+            return int(self.property2)
+        except TypeError:
+            return None
+
+    @response_time.setter
+    def response_time(self, response_time):
+        """Assign response_time to property2."""
+        self.property2 = repr(response_time)
+
+    @response_time.expression
+    def response_time(self):
+        """Retrieve RT via property2."""
+        return cast(self.property2, int)
+
+
+class Catcher(Agent):
+
+    __mapper_args__ = {"polymorphic_identity": "Catcher"}
+
+    def update(self, infos):
+        info = infos[0]
+        self.replicate(info)
+
+    def _what(self):
+        infos = self.infos()
+        return infos[0]
+
+    @hybrid_property
+    def human(self):
+        """Use property1 to store whether one is focused."""
+        try:
+            return bool(self.property1)
+        except TypeError:
+            return None
+
+    @human.setter
+    def human(self, catch):
+        """Assign focus to property1."""
+        self.property1 = repr(catch)
+
+    @human.expression
+    def human(self):
+        """Retrieve human via property1."""
+        return cast(self.property1, Boolean)
+
+    # Node-property2
+    @hybrid_property
+    def response_time(self):
+        """Use property2 to store RT."""
+        try:
+            return int(self.property2)
+        except TypeError:
+            return None
+
+    @response_time.setter
+    def response_time(self, response_time):
+        """Assign response_time to property2."""
+        self.property2 = repr(response_time)
+
+    @response_time.expression
+    def response_time(self):
+        """Retrieve RT via property2."""
+        return cast(self.property2, int)
 
 
 class AnimalSource(Source):
@@ -99,6 +169,7 @@ class AnimalInfo(Info):
         """Retrieve human via property2."""
         return cast(self.property2, Boolean)
 
+
     properties = {
         "x": [-5.0, 5.0],
         "y": [-5.0, 5.0],
@@ -125,15 +196,15 @@ class AnimalInfo(Info):
         """Perturb the given animal."""
         animal = json.loads(self.contents)
 
-        rand = random.uniform(0, 1)
-        if rand >= 0.1:
-            proposal = multivariate_normal([animal['x'], animal['y'], animal['z']], self.happy_prop_cov, 1)
-            for n, prop in enumerate(animal.keys()):
-                animal[prop] = proposal[0, n]
-        else:
-            for prop, prop_value in animal.items():
-                jittered = random.uniform(-5, 5)  # 10% uniform proposal
-                animal[prop] = jittered
+        # rand = random.uniform(0, 1)
+        # if rand >= 0.1:
+        proposal = multivariate_normal([animal['x'], animal['y'], animal['z']], self.happy_prop_cov, 1)
+        for n, prop in enumerate(animal.keys()):
+            animal[prop] = proposal[0, n]
+        # else:
+            # for prop, prop_value in animal.items():
+                # jittered = random.uniform(-5, 5)  # 10% uniform proposal
+                # animal[prop] = jittered
 
         return json.dumps(animal)
 

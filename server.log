@@ -1,0 +1,2250 @@
+Current configuration:
+  config: ./gunicorn.conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:5000']
+  backlog: 2048
+  workers: 16
+  worker_class: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 0
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /private/var/folders/_q/444v3d_50fl01c2n80gtpq1m0000gn/T/tmp_xhu5n35/fb521fa0-0b24-9e40-e441-941e95b2ad6f
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: -
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: dallinger_experiment_server
+  default_proc_name: gunicorn
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x1091e10d0>
+  on_reload: <function OnReload.on_reload at 0x1091e11f0>
+  when_ready: <function when_ready at 0x105fb7ca0>
+  pre_fork: <function Prefork.pre_fork at 0x1091e1430>
+  post_fork: <function Postfork.post_fork at 0x1091e1550>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x1091e1670>
+  worker_int: <function WorkerInt.worker_int at 0x1091e1790>
+  worker_abort: <function WorkerAbort.worker_abort at 0x1091e18b0>
+  pre_exec: <function PreExec.pre_exec at 0x1091e19d0>
+  pre_request: <function PreRequest.pre_request at 0x1091e1af0>
+  post_request: <function PostRequest.post_request at 0x1091e1b80>
+  child_exit: <function ChildExit.child_exit at 0x1091e1ca0>
+  worker_exit: <function WorkerExit.worker_exit at 0x1091e1dc0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x1091e1ee0>
+  on_exit: <function OnExit.on_exit at 0x1091ef040>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+Starting gunicorn 20.1.0
+Arbiter booted
+Listening at: http://0.0.0.0:5000 (51158)
+Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+Booting worker with pid: 51164
+Booting worker with pid: 51165
+Booting worker with pid: 51167
+Booting worker with pid: 51168
+Booting worker with pid: 51169
+Booting worker with pid: 51170
+Booting worker with pid: 51171
+Booting worker with pid: 51172
+Booting worker with pid: 51173
+Booting worker with pid: 51174
+Booting worker with pid: 51175
+Booting worker with pid: 51176
+Booting worker with pid: 51177
+Booting worker with pid: 51178
+Booting worker with pid: 51179
+Booting worker with pid: 51180
+16 workers
+Handling signal: int
+Worker exiting (pid: 51178)
+Worker exiting (pid: 51179)
+Worker exiting (pid: 51175)
+Worker exiting (pid: 51177)
+Worker exiting (pid: 51169)
+Worker exiting (pid: 51171)
+Worker exiting (pid: 51174)
+Worker exiting (pid: 51173)
+Worker exiting (pid: 51165)
+Worker exiting (pid: 51168)
+Worker exiting (pid: 51167)
+Worker exiting (pid: 51180)
+Worker exiting (pid: 51176)
+Worker exiting (pid: 51170)
+Worker exiting (pid: 51164)
+Worker exiting (pid: 51172)
+Shutting down: Master
+Current configuration:
+  config: ./gunicorn.conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:5000']
+  backlog: 2048
+  workers: 16
+  worker_class: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 0
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /private/var/folders/_q/444v3d_50fl01c2n80gtpq1m0000gn/T/tmpo48xmapp/338195cc-990c-3213-11f7-2ff1243dc351
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: -
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: dallinger_experiment_server
+  default_proc_name: gunicorn
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x108e5e0d0>
+  on_reload: <function OnReload.on_reload at 0x108e5e1f0>
+  when_ready: <function when_ready at 0x105c34ca0>
+  pre_fork: <function Prefork.pre_fork at 0x108e5e430>
+  post_fork: <function Postfork.post_fork at 0x108e5e550>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x108e5e670>
+  worker_int: <function WorkerInt.worker_int at 0x108e5e790>
+  worker_abort: <function WorkerAbort.worker_abort at 0x108e5e8b0>
+  pre_exec: <function PreExec.pre_exec at 0x108e5e9d0>
+  pre_request: <function PreRequest.pre_request at 0x108e5eaf0>
+  post_request: <function PostRequest.post_request at 0x108e5eb80>
+  child_exit: <function ChildExit.child_exit at 0x108e5eca0>
+  worker_exit: <function WorkerExit.worker_exit at 0x108e5edc0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x108e5eee0>
+  on_exit: <function OnExit.on_exit at 0x108e6a040>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+Starting gunicorn 20.1.0
+Arbiter booted
+Listening at: http://0.0.0.0:5000 (51329)
+Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+Booting worker with pid: 51335
+Booting worker with pid: 51336
+Booting worker with pid: 51337
+Booting worker with pid: 51338
+Booting worker with pid: 51339
+Booting worker with pid: 51340
+Booting worker with pid: 51341
+Booting worker with pid: 51342
+Booting worker with pid: 51343
+Booting worker with pid: 51344
+Booting worker with pid: 51345
+Booting worker with pid: 51346
+Booting worker with pid: 51347
+Booting worker with pid: 51348
+Booting worker with pid: 51349
+Booting worker with pid: 51350
+16 workers
+Handling signal: int
+Worker exiting (pid: 51335)
+Worker exiting (pid: 51336)
+Worker exiting (pid: 51344)
+Worker exiting (pid: 51345)
+Worker exiting (pid: 51340)
+Worker exiting (pid: 51348)
+Worker exiting (pid: 51338)
+Worker exiting (pid: 51347)
+Worker exiting (pid: 51346)
+Worker exiting (pid: 51349)
+Worker exiting (pid: 51343)
+Worker exiting (pid: 51342)
+Worker exiting (pid: 51339)
+Worker exiting (pid: 51337)
+Worker exiting (pid: 51341)
+Worker exiting (pid: 51350)
+Shutting down: Master
+Current configuration:
+  config: ./gunicorn.conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:5000']
+  backlog: 2048
+  workers: 16
+  worker_class: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 0
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /private/var/folders/_q/444v3d_50fl01c2n80gtpq1m0000gn/T/tmpmkedg1al/a555068b-62ac-a04e-0e83-208abc10530b
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: -
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: dallinger_experiment_server
+  default_proc_name: gunicorn
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x106ed50d0>
+  on_reload: <function OnReload.on_reload at 0x106ed51f0>
+  when_ready: <function when_ready at 0x103cacca0>
+  pre_fork: <function Prefork.pre_fork at 0x106ed5430>
+  post_fork: <function Postfork.post_fork at 0x106ed5550>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x106ed5670>
+  worker_int: <function WorkerInt.worker_int at 0x106ed5790>
+  worker_abort: <function WorkerAbort.worker_abort at 0x106ed58b0>
+  pre_exec: <function PreExec.pre_exec at 0x106ed59d0>
+  pre_request: <function PreRequest.pre_request at 0x106ed5af0>
+  post_request: <function PostRequest.post_request at 0x106ed5b80>
+  child_exit: <function ChildExit.child_exit at 0x106ed5ca0>
+  worker_exit: <function WorkerExit.worker_exit at 0x106ed5dc0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x106ed5ee0>
+  on_exit: <function OnExit.on_exit at 0x106ee3040>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+Starting gunicorn 20.1.0
+Arbiter booted
+Listening at: http://0.0.0.0:5000 (51517)
+Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+Booting worker with pid: 51523
+Booting worker with pid: 51524
+Booting worker with pid: 51525
+Booting worker with pid: 51526
+Booting worker with pid: 51527
+Booting worker with pid: 51528
+Booting worker with pid: 51529
+Booting worker with pid: 51530
+Booting worker with pid: 51531
+Booting worker with pid: 51532
+Booting worker with pid: 51533
+Booting worker with pid: 51534
+Booting worker with pid: 51535
+Booting worker with pid: 51536
+Booting worker with pid: 51537
+Booting worker with pid: 51538
+16 workers
+Handling signal: int
+Worker exiting (pid: 51525)
+Worker exiting (pid: 51530)
+Worker exiting (pid: 51535)
+Worker exiting (pid: 51533)
+Worker exiting (pid: 51537)
+Worker exiting (pid: 51528)
+Worker exiting (pid: 51529)
+Worker exiting (pid: 51526)
+Worker exiting (pid: 51524)
+Worker exiting (pid: 51536)
+Worker exiting (pid: 51527)
+Worker exiting (pid: 51534)
+Worker exiting (pid: 51532)
+Worker exiting (pid: 51531)
+Worker exiting (pid: 51523)
+Worker exiting (pid: 51538)
+Shutting down: Master
+Current configuration:
+  config: ./gunicorn.conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:5000']
+  backlog: 2048
+  workers: 16
+  worker_class: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 0
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /private/var/folders/_q/444v3d_50fl01c2n80gtpq1m0000gn/T/tmp5cz0nl_i/373b0e4b-3578-5983-dbd0-4bdedb0f584d
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: -
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: dallinger_experiment_server
+  default_proc_name: gunicorn
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x1098910d0>
+  on_reload: <function OnReload.on_reload at 0x1098911f0>
+  when_ready: <function when_ready at 0x106668ca0>
+  pre_fork: <function Prefork.pre_fork at 0x109891430>
+  post_fork: <function Postfork.post_fork at 0x109891550>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x109891670>
+  worker_int: <function WorkerInt.worker_int at 0x109891790>
+  worker_abort: <function WorkerAbort.worker_abort at 0x1098918b0>
+  pre_exec: <function PreExec.pre_exec at 0x1098919d0>
+  pre_request: <function PreRequest.pre_request at 0x109891af0>
+  post_request: <function PostRequest.post_request at 0x109891b80>
+  child_exit: <function ChildExit.child_exit at 0x109891ca0>
+  worker_exit: <function WorkerExit.worker_exit at 0x109891dc0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x109891ee0>
+  on_exit: <function OnExit.on_exit at 0x10989f040>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+Starting gunicorn 20.1.0
+Arbiter booted
+Listening at: http://0.0.0.0:5000 (51816)
+Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+Booting worker with pid: 51822
+Booting worker with pid: 51824
+Booting worker with pid: 51825
+Booting worker with pid: 51826
+Booting worker with pid: 51827
+Booting worker with pid: 51828
+Booting worker with pid: 51829
+Booting worker with pid: 51830
+Booting worker with pid: 51831
+Booting worker with pid: 51832
+Booting worker with pid: 51833
+Booting worker with pid: 51834
+Booting worker with pid: 51835
+Booting worker with pid: 51836
+Booting worker with pid: 51837
+Booting worker with pid: 51838
+16 workers
+Handling signal: int
+Worker exiting (pid: 51838)
+Worker exiting (pid: 51824)
+Worker exiting (pid: 51835)
+Worker exiting (pid: 51833)
+Worker exiting (pid: 51829)
+Worker exiting (pid: 51834)
+Worker exiting (pid: 51827)
+Worker exiting (pid: 51832)
+Worker exiting (pid: 51828)
+Worker exiting (pid: 51822)
+Worker exiting (pid: 51837)
+Worker exiting (pid: 51836)
+Worker exiting (pid: 51831)
+Worker exiting (pid: 51825)
+Worker exiting (pid: 51830)
+Worker exiting (pid: 51826)
+Shutting down: Master
+Current configuration:
+  config: ./gunicorn.conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:5000']
+  backlog: 2048
+  workers: 16
+  worker_class: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 0
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /private/var/folders/_q/444v3d_50fl01c2n80gtpq1m0000gn/T/tmpceaqmeo1/a6125d9d-c247-a68a-1391-1813a515743a
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: -
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: dallinger_experiment_server
+  default_proc_name: gunicorn
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x1093390d0>
+  on_reload: <function OnReload.on_reload at 0x1093391f0>
+  when_ready: <function when_ready at 0x106110ca0>
+  pre_fork: <function Prefork.pre_fork at 0x109339430>
+  post_fork: <function Postfork.post_fork at 0x109339550>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x109339670>
+  worker_int: <function WorkerInt.worker_int at 0x109339790>
+  worker_abort: <function WorkerAbort.worker_abort at 0x1093398b0>
+  pre_exec: <function PreExec.pre_exec at 0x1093399d0>
+  pre_request: <function PreRequest.pre_request at 0x109339af0>
+  post_request: <function PostRequest.post_request at 0x109339b80>
+  child_exit: <function ChildExit.child_exit at 0x109339ca0>
+  worker_exit: <function WorkerExit.worker_exit at 0x109339dc0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x109339ee0>
+  on_exit: <function OnExit.on_exit at 0x109347040>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+Starting gunicorn 20.1.0
+Arbiter booted
+Listening at: http://0.0.0.0:5000 (51974)
+Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+Booting worker with pid: 51980
+Booting worker with pid: 51981
+Booting worker with pid: 51982
+Booting worker with pid: 51983
+Booting worker with pid: 51984
+Booting worker with pid: 51985
+Booting worker with pid: 51986
+Booting worker with pid: 51987
+Booting worker with pid: 51988
+Booting worker with pid: 51989
+Booting worker with pid: 51990
+Booting worker with pid: 51991
+Booting worker with pid: 51992
+Booting worker with pid: 51993
+Booting worker with pid: 51994
+16 workers
+Booting worker with pid: 51995
+Handling signal: int
+Worker exiting (pid: 51994)
+Worker exiting (pid: 51993)
+Worker exiting (pid: 51990)
+Worker exiting (pid: 51991)
+Worker exiting (pid: 51995)
+Worker exiting (pid: 51988)
+Worker exiting (pid: 51981)
+Worker exiting (pid: 51983)
+Worker exiting (pid: 51982)
+Worker exiting (pid: 51980)
+Worker exiting (pid: 51984)
+Worker exiting (pid: 51985)
+Worker exiting (pid: 51989)
+Worker exiting (pid: 51986)
+Worker exiting (pid: 51992)
+Worker exiting (pid: 51987)
+Shutting down: Master
+Current configuration:
+  config: ./gunicorn.conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:5000']
+  backlog: 2048
+  workers: 16
+  worker_class: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 0
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /private/var/folders/_q/444v3d_50fl01c2n80gtpq1m0000gn/T/tmpzempa2ws/fbb3b8f8-7f3f-3125-1ccc-5b3bf3512093
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: -
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: dallinger_experiment_server
+  default_proc_name: gunicorn
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x1073f60d0>
+  on_reload: <function OnReload.on_reload at 0x1073f61f0>
+  when_ready: <function when_ready at 0x1041ccca0>
+  pre_fork: <function Prefork.pre_fork at 0x1073f6430>
+  post_fork: <function Postfork.post_fork at 0x1073f6550>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x1073f6670>
+  worker_int: <function WorkerInt.worker_int at 0x1073f6790>
+  worker_abort: <function WorkerAbort.worker_abort at 0x1073f68b0>
+  pre_exec: <function PreExec.pre_exec at 0x1073f69d0>
+  pre_request: <function PreRequest.pre_request at 0x1073f6af0>
+  post_request: <function PostRequest.post_request at 0x1073f6b80>
+  child_exit: <function ChildExit.child_exit at 0x1073f6ca0>
+  worker_exit: <function WorkerExit.worker_exit at 0x1073f6dc0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x1073f6ee0>
+  on_exit: <function OnExit.on_exit at 0x107404040>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+Starting gunicorn 20.1.0
+Arbiter booted
+Listening at: http://0.0.0.0:5000 (52228)
+Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+Booting worker with pid: 52234
+Booting worker with pid: 52235
+Booting worker with pid: 52236
+Booting worker with pid: 52237
+Booting worker with pid: 52238
+Booting worker with pid: 52239
+Booting worker with pid: 52240
+Booting worker with pid: 52241
+Booting worker with pid: 52242
+Booting worker with pid: 52243
+Booting worker with pid: 52244
+Booting worker with pid: 52245
+Booting worker with pid: 52246
+Booting worker with pid: 52247
+Booting worker with pid: 52248
+Booting worker with pid: 52249
+16 workers
+Handling signal: int
+Worker exiting (pid: 52248)
+Worker exiting (pid: 52249)
+Worker exiting (pid: 52243)
+Worker exiting (pid: 52240)
+Worker exiting (pid: 52234)
+Worker exiting (pid: 52244)
+Worker exiting (pid: 52247)
+Worker exiting (pid: 52245)
+Worker exiting (pid: 52241)
+Worker exiting (pid: 52246)
+Worker exiting (pid: 52235)
+Worker exiting (pid: 52238)
+Worker exiting (pid: 52236)
+Worker exiting (pid: 52242)
+Worker exiting (pid: 52239)
+Worker exiting (pid: 52237)
+Shutting down: Master
+Current configuration:
+  config: ./gunicorn.conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:5000']
+  backlog: 2048
+  workers: 16
+  worker_class: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 0
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /private/var/folders/_q/444v3d_50fl01c2n80gtpq1m0000gn/T/tmpwf326gm9/c870ba7d-3e68-bb22-2c5c-a0cd39bd41f3
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: -
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: dallinger_experiment_server
+  default_proc_name: gunicorn
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x1069ad0d0>
+  on_reload: <function OnReload.on_reload at 0x1069ad1f0>
+  when_ready: <function when_ready at 0x103784ca0>
+  pre_fork: <function Prefork.pre_fork at 0x1069ad430>
+  post_fork: <function Postfork.post_fork at 0x1069ad550>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x1069ad670>
+  worker_int: <function WorkerInt.worker_int at 0x1069ad790>
+  worker_abort: <function WorkerAbort.worker_abort at 0x1069ad8b0>
+  pre_exec: <function PreExec.pre_exec at 0x1069ad9d0>
+  pre_request: <function PreRequest.pre_request at 0x1069adaf0>
+  post_request: <function PostRequest.post_request at 0x1069adb80>
+  child_exit: <function ChildExit.child_exit at 0x1069adca0>
+  worker_exit: <function WorkerExit.worker_exit at 0x1069addc0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x1069adee0>
+  on_exit: <function OnExit.on_exit at 0x1069ba040>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+Starting gunicorn 20.1.0
+Arbiter booted
+Listening at: http://0.0.0.0:5000 (52408)
+Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+Booting worker with pid: 52414
+Booting worker with pid: 52415
+Booting worker with pid: 52416
+Booting worker with pid: 52417
+Booting worker with pid: 52418
+Booting worker with pid: 52419
+Booting worker with pid: 52420
+Booting worker with pid: 52421
+Booting worker with pid: 52422
+Booting worker with pid: 52423
+Booting worker with pid: 52424
+Booting worker with pid: 52425
+Booting worker with pid: 52426
+Booting worker with pid: 52427
+Booting worker with pid: 52428
+Booting worker with pid: 52429
+16 workers
+Handling signal: int
+Worker exiting (pid: 52424)
+Worker exiting (pid: 52417)
+Worker exiting (pid: 52425)
+Worker exiting (pid: 52421)
+Worker exiting (pid: 52427)
+Worker exiting (pid: 52426)
+Worker exiting (pid: 52429)
+Worker exiting (pid: 52419)
+Worker exiting (pid: 52416)
+Worker exiting (pid: 52420)
+Worker exiting (pid: 52418)
+Worker exiting (pid: 52422)
+Worker exiting (pid: 52415)
+Worker exiting (pid: 52414)
+Worker exiting (pid: 52428)
+Worker exiting (pid: 52423)
+Shutting down: Master
+Current configuration:
+  config: ./gunicorn.conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:5000']
+  backlog: 2048
+  workers: 16
+  worker_class: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 0
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /private/var/folders/_q/444v3d_50fl01c2n80gtpq1m0000gn/T/tmpjfbu9sgw/beb43cbb-5199-182d-ed92-60277ccf0c24
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: -
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: dallinger_experiment_server
+  default_proc_name: gunicorn
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x1092150d0>
+  on_reload: <function OnReload.on_reload at 0x1092151f0>
+  when_ready: <function when_ready at 0x105febca0>
+  pre_fork: <function Prefork.pre_fork at 0x109215430>
+  post_fork: <function Postfork.post_fork at 0x109215550>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x109215670>
+  worker_int: <function WorkerInt.worker_int at 0x109215790>
+  worker_abort: <function WorkerAbort.worker_abort at 0x1092158b0>
+  pre_exec: <function PreExec.pre_exec at 0x1092159d0>
+  pre_request: <function PreRequest.pre_request at 0x109215af0>
+  post_request: <function PostRequest.post_request at 0x109215b80>
+  child_exit: <function ChildExit.child_exit at 0x109215ca0>
+  worker_exit: <function WorkerExit.worker_exit at 0x109215dc0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x109215ee0>
+  on_exit: <function OnExit.on_exit at 0x109222040>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+Starting gunicorn 20.1.0
+Arbiter booted
+Listening at: http://0.0.0.0:5000 (52770)
+Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+Booting worker with pid: 52776
+Booting worker with pid: 52777
+Booting worker with pid: 52778
+Booting worker with pid: 52780
+Booting worker with pid: 52781
+Booting worker with pid: 52782
+Booting worker with pid: 52783
+Booting worker with pid: 52784
+Booting worker with pid: 52785
+Booting worker with pid: 52786
+Booting worker with pid: 52787
+Booting worker with pid: 52788
+Booting worker with pid: 52789
+Booting worker with pid: 52790
+Booting worker with pid: 52791
+Booting worker with pid: 52792
+16 workers
+Handling signal: int
+Worker exiting (pid: 52790)
+Worker exiting (pid: 52791)
+Worker exiting (pid: 52785)
+Worker exiting (pid: 52792)
+Worker exiting (pid: 52786)
+Worker exiting (pid: 52787)
+Worker exiting (pid: 52778)
+Worker exiting (pid: 52776)
+Worker exiting (pid: 52789)
+Worker exiting (pid: 52784)
+Worker exiting (pid: 52788)
+Worker exiting (pid: 52777)
+Worker exiting (pid: 52783)
+Worker exiting (pid: 52781)
+Worker exiting (pid: 52780)
+Worker exiting (pid: 52782)
+Shutting down: Master
+Current configuration:
+  config: ./gunicorn.conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:5000']
+  backlog: 2048
+  workers: 16
+  worker_class: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 0
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /private/var/folders/_q/444v3d_50fl01c2n80gtpq1m0000gn/T/tmpxihwiz9g/51ab60d8-4477-c2aa-e53e-ccfc44bc2616
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: -
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: dallinger_experiment_server
+  default_proc_name: gunicorn
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x1075d60d0>
+  on_reload: <function OnReload.on_reload at 0x1075d61f0>
+  when_ready: <function when_ready at 0x1043acca0>
+  pre_fork: <function Prefork.pre_fork at 0x1075d6430>
+  post_fork: <function Postfork.post_fork at 0x1075d6550>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x1075d6670>
+  worker_int: <function WorkerInt.worker_int at 0x1075d6790>
+  worker_abort: <function WorkerAbort.worker_abort at 0x1075d68b0>
+  pre_exec: <function PreExec.pre_exec at 0x1075d69d0>
+  pre_request: <function PreRequest.pre_request at 0x1075d6af0>
+  post_request: <function PostRequest.post_request at 0x1075d6b80>
+  child_exit: <function ChildExit.child_exit at 0x1075d6ca0>
+  worker_exit: <function WorkerExit.worker_exit at 0x1075d6dc0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x1075d6ee0>
+  on_exit: <function OnExit.on_exit at 0x1075e3040>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+Starting gunicorn 20.1.0
+Arbiter booted
+Listening at: http://0.0.0.0:5000 (53010)
+Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+Booting worker with pid: 53016
+Booting worker with pid: 53017
+Booting worker with pid: 53018
+Booting worker with pid: 53019
+Booting worker with pid: 53020
+Booting worker with pid: 53021
+Booting worker with pid: 53022
+Booting worker with pid: 53023
+Booting worker with pid: 53024
+Booting worker with pid: 53025
+Booting worker with pid: 53026
+Booting worker with pid: 53027
+Booting worker with pid: 53028
+Booting worker with pid: 53029
+Booting worker with pid: 53030
+Booting worker with pid: 53031
+16 workers
+Handling signal: int
+Worker exiting (pid: 53018)
+Worker exiting (pid: 53019)
+Worker exiting (pid: 53030)
+Worker exiting (pid: 53029)
+Worker exiting (pid: 53026)
+Worker exiting (pid: 53016)
+Worker exiting (pid: 53027)
+Worker exiting (pid: 53031)
+Worker exiting (pid: 53024)
+Worker exiting (pid: 53021)
+Worker exiting (pid: 53022)
+Worker exiting (pid: 53017)
+Worker exiting (pid: 53025)
+Worker exiting (pid: 53020)
+Worker exiting (pid: 53023)
+Worker exiting (pid: 53028)
+Shutting down: Master
+Current configuration:
+  config: ./gunicorn.conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:5000']
+  backlog: 2048
+  workers: 16
+  worker_class: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 0
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /private/var/folders/_q/444v3d_50fl01c2n80gtpq1m0000gn/T/tmpb4gfuocr/038ccbba-f26e-e509-fba8-78e0bcd4ba83
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: -
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: dallinger_experiment_server
+  default_proc_name: gunicorn
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x10566a0d0>
+  on_reload: <function OnReload.on_reload at 0x10566a1f0>
+  when_ready: <function when_ready at 0x102440ca0>
+  pre_fork: <function Prefork.pre_fork at 0x10566a430>
+  post_fork: <function Postfork.post_fork at 0x10566a550>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x10566a670>
+  worker_int: <function WorkerInt.worker_int at 0x10566a790>
+  worker_abort: <function WorkerAbort.worker_abort at 0x10566a8b0>
+  pre_exec: <function PreExec.pre_exec at 0x10566a9d0>
+  pre_request: <function PreRequest.pre_request at 0x10566aaf0>
+  post_request: <function PostRequest.post_request at 0x10566ab80>
+  child_exit: <function ChildExit.child_exit at 0x10566aca0>
+  worker_exit: <function WorkerExit.worker_exit at 0x10566adc0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x10566aee0>
+  on_exit: <function OnExit.on_exit at 0x105677040>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+Starting gunicorn 20.1.0
+Arbiter booted
+Listening at: http://0.0.0.0:5000 (53199)
+Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+Booting worker with pid: 53205
+Booting worker with pid: 53206
+Booting worker with pid: 53207
+Booting worker with pid: 53208
+Booting worker with pid: 53209
+Booting worker with pid: 53210
+Booting worker with pid: 53211
+Booting worker with pid: 53212
+Booting worker with pid: 53213
+Booting worker with pid: 53214
+Booting worker with pid: 53215
+Booting worker with pid: 53216
+Booting worker with pid: 53217
+Booting worker with pid: 53218
+Booting worker with pid: 53219
+Booting worker with pid: 53220
+16 workers
+Worker exiting (pid: 53210)
+Handling signal: int
+Worker exiting (pid: 53211)
+Worker exiting (pid: 53206)
+Worker exiting (pid: 53219)
+Worker exiting (pid: 53218)
+Worker exiting (pid: 53212)
+Worker exiting (pid: 53214)
+Worker exiting (pid: 53207)
+Worker exiting (pid: 53216)
+Worker exiting (pid: 53217)
+Worker exiting (pid: 53209)
+Worker exiting (pid: 53205)
+Worker exiting (pid: 53215)
+Worker exiting (pid: 53220)
+Worker exiting (pid: 53213)
+Worker exiting (pid: 53208)
+Shutting down: Master
+Current configuration:
+  config: ./gunicorn.conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:5000']
+  backlog: 2048
+  workers: 16
+  worker_class: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 0
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /private/var/folders/_q/444v3d_50fl01c2n80gtpq1m0000gn/T/tmpo8w40lww/e30163b1-8a0d-eaef-c351-8af23a94bc27
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: -
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: dallinger_experiment_server
+  default_proc_name: gunicorn
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x1073650d0>
+  on_reload: <function OnReload.on_reload at 0x1073651f0>
+  when_ready: <function when_ready at 0x10413cca0>
+  pre_fork: <function Prefork.pre_fork at 0x107365430>
+  post_fork: <function Postfork.post_fork at 0x107365550>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x107365670>
+  worker_int: <function WorkerInt.worker_int at 0x107365790>
+  worker_abort: <function WorkerAbort.worker_abort at 0x1073658b0>
+  pre_exec: <function PreExec.pre_exec at 0x1073659d0>
+  pre_request: <function PreRequest.pre_request at 0x107365af0>
+  post_request: <function PostRequest.post_request at 0x107365b80>
+  child_exit: <function ChildExit.child_exit at 0x107365ca0>
+  worker_exit: <function WorkerExit.worker_exit at 0x107365dc0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x107365ee0>
+  on_exit: <function OnExit.on_exit at 0x107371040>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+Starting gunicorn 20.1.0
+Arbiter booted
+Listening at: http://0.0.0.0:5000 (53555)
+Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+Booting worker with pid: 53561
+Booting worker with pid: 53562
+Booting worker with pid: 53563
+Booting worker with pid: 53564
+Booting worker with pid: 53565
+Booting worker with pid: 53566
+Booting worker with pid: 53567
+Booting worker with pid: 53568
+Booting worker with pid: 53569
+Booting worker with pid: 53570
+Booting worker with pid: 53571
+Booting worker with pid: 53572
+Booting worker with pid: 53573
+Booting worker with pid: 53574
+Booting worker with pid: 53575
+Booting worker with pid: 53576
+16 workers
+Handling signal: int
+Worker exiting (pid: 53576)
+Worker exiting (pid: 53574)
+Worker exiting (pid: 53572)
+Worker exiting (pid: 53573)
+Worker exiting (pid: 53569)
+Worker exiting (pid: 53564)
+Worker exiting (pid: 53562)
+Worker exiting (pid: 53570)
+Worker exiting (pid: 53563)
+Worker exiting (pid: 53566)
+Worker exiting (pid: 53567)
+Worker exiting (pid: 53565)
+Worker exiting (pid: 53571)
+Worker exiting (pid: 53561)
+Worker exiting (pid: 53575)
+Worker exiting (pid: 53568)
+Shutting down: Master
+Current configuration:
+  config: ./gunicorn.conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:5000']
+  backlog: 2048
+  workers: 16
+  worker_class: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 0
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /private/var/folders/_q/444v3d_50fl01c2n80gtpq1m0000gn/T/tmp_m897yzw/01f75ce8-7918-8272-063a-689a3bbd1fa3
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: -
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: dallinger_experiment_server
+  default_proc_name: gunicorn
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x1128820d0>
+  on_reload: <function OnReload.on_reload at 0x1128821f0>
+  when_ready: <function when_ready at 0x105e28ca0>
+  pre_fork: <function Prefork.pre_fork at 0x112882430>
+  post_fork: <function Postfork.post_fork at 0x112882550>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x112882670>
+  worker_int: <function WorkerInt.worker_int at 0x112882790>
+  worker_abort: <function WorkerAbort.worker_abort at 0x1128828b0>
+  pre_exec: <function PreExec.pre_exec at 0x1128829d0>
+  pre_request: <function PreRequest.pre_request at 0x112882af0>
+  post_request: <function PostRequest.post_request at 0x112882b80>
+  child_exit: <function ChildExit.child_exit at 0x112882ca0>
+  worker_exit: <function WorkerExit.worker_exit at 0x112882dc0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x112882ee0>
+  on_exit: <function OnExit.on_exit at 0x11288f040>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+Starting gunicorn 20.1.0
+Arbiter booted
+Listening at: http://0.0.0.0:5000 (7397)
+Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+Booting worker with pid: 7403
+Booting worker with pid: 7404
+Booting worker with pid: 7405
+Booting worker with pid: 7407
+Booting worker with pid: 7408
+Booting worker with pid: 7409
+Booting worker with pid: 7410
+Booting worker with pid: 7411
+Booting worker with pid: 7412
+Booting worker with pid: 7413
+Booting worker with pid: 7414
+Booting worker with pid: 7415
+Booting worker with pid: 7416
+Booting worker with pid: 7417
+Booting worker with pid: 7418
+Booting worker with pid: 7419
+16 workers
+Handling signal: int
+Worker exiting (pid: 7403)
+Worker exiting (pid: 7404)
+Worker exiting (pid: 7408)
+Worker exiting (pid: 7419)
+Worker exiting (pid: 7418)
+Worker exiting (pid: 7414)
+Worker exiting (pid: 7409)
+Worker exiting (pid: 7413)
+Worker exiting (pid: 7410)
+Worker exiting (pid: 7416)
+Worker exiting (pid: 7405)
+Worker exiting (pid: 7415)
+Worker exiting (pid: 7412)
+Worker exiting (pid: 7411)
+Worker exiting (pid: 7417)
+Worker exiting (pid: 7407)
+Shutting down: Master
+Current configuration:
+  config: ./gunicorn.conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:5000']
+  backlog: 2048
+  workers: 16
+  worker_class: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 0
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /private/var/folders/_q/444v3d_50fl01c2n80gtpq1m0000gn/T/tmp0yim32hv/82f04ed8-7d3d-3c0b-ebd4-3ad42d22c6f0
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: -
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: dallinger_experiment_server
+  default_proc_name: gunicorn
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x1078820d0>
+  on_reload: <function OnReload.on_reload at 0x1078821f0>
+  when_ready: <function when_ready at 0x102765ca0>
+  pre_fork: <function Prefork.pre_fork at 0x107882430>
+  post_fork: <function Postfork.post_fork at 0x107882550>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x107882670>
+  worker_int: <function WorkerInt.worker_int at 0x107882790>
+  worker_abort: <function WorkerAbort.worker_abort at 0x1078828b0>
+  pre_exec: <function PreExec.pre_exec at 0x1078829d0>
+  pre_request: <function PreRequest.pre_request at 0x107882af0>
+  post_request: <function PostRequest.post_request at 0x107882b80>
+  child_exit: <function ChildExit.child_exit at 0x107882ca0>
+  worker_exit: <function WorkerExit.worker_exit at 0x107882dc0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x107882ee0>
+  on_exit: <function OnExit.on_exit at 0x10788f040>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+Starting gunicorn 20.1.0
+Arbiter booted
+Listening at: http://0.0.0.0:5000 (7605)
+Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+Booting worker with pid: 7611
+Booting worker with pid: 7612
+Booting worker with pid: 7613
+Booting worker with pid: 7614
+Booting worker with pid: 7615
+Booting worker with pid: 7616
+Booting worker with pid: 7617
+Booting worker with pid: 7618
+Booting worker with pid: 7619
+Booting worker with pid: 7620
+Booting worker with pid: 7621
+Booting worker with pid: 7622
+Booting worker with pid: 7623
+Booting worker with pid: 7624
+Booting worker with pid: 7625
+Booting worker with pid: 7626
+16 workers
+Handling signal: int
+Worker exiting (pid: 7622)
+Worker exiting (pid: 7623)
+Worker exiting (pid: 7625)
+Worker exiting (pid: 7626)
+Worker exiting (pid: 7620)
+Worker exiting (pid: 7617)
+Worker exiting (pid: 7624)
+Worker exiting (pid: 7612)
+Worker exiting (pid: 7615)
+Worker exiting (pid: 7611)
+Worker exiting (pid: 7621)
+Worker exiting (pid: 7619)
+Worker exiting (pid: 7614)
+Worker exiting (pid: 7616)
+Worker exiting (pid: 7613)
+Worker exiting (pid: 7618)
+Shutting down: Master
+Current configuration:
+  config: ./gunicorn.conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:5000']
+  backlog: 2048
+  workers: 16
+  worker_class: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 0
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /private/var/folders/_q/444v3d_50fl01c2n80gtpq1m0000gn/T/tmpox3fv4rp/56a474b0-e2b5-7a6d-11fc-19f085085e1c
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: -
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: dallinger_experiment_server
+  default_proc_name: gunicorn
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x1076d20d0>
+  on_reload: <function OnReload.on_reload at 0x1076d21f0>
+  when_ready: <function when_ready at 0x1044a9ca0>
+  pre_fork: <function Prefork.pre_fork at 0x1076d2430>
+  post_fork: <function Postfork.post_fork at 0x1076d2550>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x1076d2670>
+  worker_int: <function WorkerInt.worker_int at 0x1076d2790>
+  worker_abort: <function WorkerAbort.worker_abort at 0x1076d28b0>
+  pre_exec: <function PreExec.pre_exec at 0x1076d29d0>
+  pre_request: <function PreRequest.pre_request at 0x1076d2af0>
+  post_request: <function PostRequest.post_request at 0x1076d2b80>
+  child_exit: <function ChildExit.child_exit at 0x1076d2ca0>
+  worker_exit: <function WorkerExit.worker_exit at 0x1076d2dc0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x1076d2ee0>
+  on_exit: <function OnExit.on_exit at 0x1076df040>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+Starting gunicorn 20.1.0
+Arbiter booted
+Listening at: http://0.0.0.0:5000 (7810)
+Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+Booting worker with pid: 7816
+Booting worker with pid: 7817
+Booting worker with pid: 7818
+Booting worker with pid: 7819
+Booting worker with pid: 7820
+Booting worker with pid: 7821
+Booting worker with pid: 7822
+Booting worker with pid: 7823
+Booting worker with pid: 7824
+Booting worker with pid: 7825
+Booting worker with pid: 7826
+Booting worker with pid: 7827
+Booting worker with pid: 7828
+Booting worker with pid: 7829
+Booting worker with pid: 7830
+Booting worker with pid: 7831
+16 workers
+Handling signal: int
+Worker exiting (pid: 7831)
+Worker exiting (pid: 7830)
+Worker exiting (pid: 7824)
+Worker exiting (pid: 7820)
+Worker exiting (pid: 7821)
+Worker exiting (pid: 7829)
+Worker exiting (pid: 7816)
+Worker exiting (pid: 7828)
+Worker exiting (pid: 7827)
+Worker exiting (pid: 7825)
+Worker exiting (pid: 7819)
+Worker exiting (pid: 7823)
+Worker exiting (pid: 7826)
+Worker exiting (pid: 7818)
+Worker exiting (pid: 7817)
+Worker exiting (pid: 7822)
+Shutting down: Master
+Current configuration:
+  config: ./gunicorn.conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:5000']
+  backlog: 2048
+  workers: 16
+  worker_class: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 0
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /private/var/folders/_q/444v3d_50fl01c2n80gtpq1m0000gn/T/tmpl3wsyhek/667c0237-3ae0-2f30-5368-6ae1508818c4
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: -
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: dallinger_experiment_server
+  default_proc_name: gunicorn
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x1186020d0>
+  on_reload: <function OnReload.on_reload at 0x1186021f0>
+  when_ready: <function when_ready at 0x1045b5ca0>
+  pre_fork: <function Prefork.pre_fork at 0x118602430>
+  post_fork: <function Postfork.post_fork at 0x118602550>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x118602670>
+  worker_int: <function WorkerInt.worker_int at 0x118602790>
+  worker_abort: <function WorkerAbort.worker_abort at 0x1186028b0>
+  pre_exec: <function PreExec.pre_exec at 0x1186029d0>
+  pre_request: <function PreRequest.pre_request at 0x118602af0>
+  post_request: <function PostRequest.post_request at 0x118602b80>
+  child_exit: <function ChildExit.child_exit at 0x118602ca0>
+  worker_exit: <function WorkerExit.worker_exit at 0x118602dc0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x118602ee0>
+  on_exit: <function OnExit.on_exit at 0x11860f040>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+Starting gunicorn 20.1.0
+Arbiter booted
+Listening at: http://0.0.0.0:5000 (8053)
+Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+Booting worker with pid: 8059
+Booting worker with pid: 8060
+Booting worker with pid: 8061
+Booting worker with pid: 8062
+Booting worker with pid: 8063
+Booting worker with pid: 8064
+Booting worker with pid: 8065
+Booting worker with pid: 8066
+Booting worker with pid: 8067
+Booting worker with pid: 8068
+Booting worker with pid: 8069
+Booting worker with pid: 8070
+Booting worker with pid: 8071
+Booting worker with pid: 8072
+Booting worker with pid: 8073
+Booting worker with pid: 8074
+16 workers
+Handling signal: int
+Worker exiting (pid: 8071)
+Worker exiting (pid: 8072)
+Worker exiting (pid: 8073)
+Worker exiting (pid: 8067)
+Worker exiting (pid: 8070)
+Worker exiting (pid: 8060)
+Worker exiting (pid: 8065)
+Worker exiting (pid: 8063)
+Worker exiting (pid: 8064)
+Worker exiting (pid: 8074)
+Worker exiting (pid: 8062)
+Worker exiting (pid: 8061)
+Worker exiting (pid: 8059)
+Worker exiting (pid: 8069)
+Worker exiting (pid: 8068)
+Worker exiting (pid: 8066)
+Shutting down: Master
+Current configuration:
+  config: ./gunicorn.conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:5000']
+  backlog: 2048
+  workers: 16
+  worker_class: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 0
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /private/var/folders/_q/444v3d_50fl01c2n80gtpq1m0000gn/T/tmpxjvf25j3/944f0d53-8881-8d26-919c-52b597ec3898
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: -
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: dallinger_experiment_server
+  default_proc_name: gunicorn
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x1199820d0>
+  on_reload: <function OnReload.on_reload at 0x1199821f0>
+  when_ready: <function when_ready at 0x10610dca0>
+  pre_fork: <function Prefork.pre_fork at 0x119982430>
+  post_fork: <function Postfork.post_fork at 0x119982550>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x119982670>
+  worker_int: <function WorkerInt.worker_int at 0x119982790>
+  worker_abort: <function WorkerAbort.worker_abort at 0x1199828b0>
+  pre_exec: <function PreExec.pre_exec at 0x1199829d0>
+  pre_request: <function PreRequest.pre_request at 0x119982af0>
+  post_request: <function PostRequest.post_request at 0x119982b80>
+  child_exit: <function ChildExit.child_exit at 0x119982ca0>
+  worker_exit: <function WorkerExit.worker_exit at 0x119982dc0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x119982ee0>
+  on_exit: <function OnExit.on_exit at 0x119991040>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+Starting gunicorn 20.1.0
+Arbiter booted
+Listening at: http://0.0.0.0:5000 (8243)
+Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+Booting worker with pid: 8249
+Booting worker with pid: 8251
+Booting worker with pid: 8252
+Booting worker with pid: 8253
+Booting worker with pid: 8254
+Booting worker with pid: 8255
+Booting worker with pid: 8256
+Booting worker with pid: 8257
+Booting worker with pid: 8258
+Booting worker with pid: 8259
+Booting worker with pid: 8260
+Booting worker with pid: 8261
+Booting worker with pid: 8262
+Booting worker with pid: 8263
+Booting worker with pid: 8264
+Booting worker with pid: 8265
+16 workers
+Handling signal: int
+Worker exiting (pid: 8263)
+Worker exiting (pid: 8264)
+Worker exiting (pid: 8256)
+Worker exiting (pid: 8262)
+Worker exiting (pid: 8249)
+Worker exiting (pid: 8260)
+Worker exiting (pid: 8252)
+Worker exiting (pid: 8259)
+Worker exiting (pid: 8253)
+Worker exiting (pid: 8258)
+Worker exiting (pid: 8257)
+Worker exiting (pid: 8251)
+Worker exiting (pid: 8255)
+Worker exiting (pid: 8261)
+Worker exiting (pid: 8254)
+Worker exiting (pid: 8265)
+Shutting down: Master
+Current configuration:
+  config: ./gunicorn.conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:5000']
+  backlog: 2048
+  workers: 16
+  worker_class: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 0
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /private/var/folders/_q/444v3d_50fl01c2n80gtpq1m0000gn/T/tmp4yt0caz7/2ec93585-adba-bb5e-9b30-c741b5fa62c3
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: -
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: dallinger_experiment_server
+  default_proc_name: gunicorn
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x1057820d0>
+  on_reload: <function OnReload.on_reload at 0x1057821f0>
+  when_ready: <function when_ready at 0x10190dca0>
+  pre_fork: <function Prefork.pre_fork at 0x105782430>
+  post_fork: <function Postfork.post_fork at 0x105782550>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x105782670>
+  worker_int: <function WorkerInt.worker_int at 0x105782790>
+  worker_abort: <function WorkerAbort.worker_abort at 0x1057828b0>
+  pre_exec: <function PreExec.pre_exec at 0x1057829d0>
+  pre_request: <function PreRequest.pre_request at 0x105782af0>
+  post_request: <function PostRequest.post_request at 0x105782b80>
+  child_exit: <function ChildExit.child_exit at 0x105782ca0>
+  worker_exit: <function WorkerExit.worker_exit at 0x105782dc0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x105782ee0>
+  on_exit: <function OnExit.on_exit at 0x105790040>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+Starting gunicorn 20.1.0
+Arbiter booted
+Listening at: http://0.0.0.0:5000 (8430)
+Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+Booting worker with pid: 8436
+Booting worker with pid: 8437
+Booting worker with pid: 8438
+Booting worker with pid: 8439
+Booting worker with pid: 8440
+Booting worker with pid: 8441
+Booting worker with pid: 8442
+Booting worker with pid: 8443
+Booting worker with pid: 8444
+Booting worker with pid: 8445
+Booting worker with pid: 8446
+Booting worker with pid: 8447
+Booting worker with pid: 8448
+Booting worker with pid: 8449
+Booting worker with pid: 8450
+Booting worker with pid: 8451
+16 workers
+Worker exiting (pid: 8450)
+Worker exiting (pid: 8451)
+Handling signal: int
+Worker exiting (pid: 8442)
+Worker exiting (pid: 8444)
+Worker exiting (pid: 8446)
+Worker exiting (pid: 8448)
+Worker exiting (pid: 8447)
+Worker exiting (pid: 8436)
+Worker exiting (pid: 8445)
+Worker exiting (pid: 8449)
+Worker exiting (pid: 8443)
+Worker exiting (pid: 8439)
+Worker exiting (pid: 8438)
+Worker exiting (pid: 8441)
+Worker exiting (pid: 8437)
+Worker exiting (pid: 8440)
+Shutting down: Master
+Current configuration:
+  config: ./gunicorn.conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:5000']
+  backlog: 2048
+  workers: 16
+  worker_class: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 0
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /private/var/folders/_q/444v3d_50fl01c2n80gtpq1m0000gn/T/tmp0oxjd402/38dfc52e-be0a-592d-f741-45163fa40fe5
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: -
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: dallinger_experiment_server
+  default_proc_name: gunicorn
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x106cc20d0>
+  on_reload: <function OnReload.on_reload at 0x106cc21f0>
+  when_ready: <function when_ready at 0x103998ca0>
+  pre_fork: <function Prefork.pre_fork at 0x106cc2430>
+  post_fork: <function Postfork.post_fork at 0x106cc2550>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x106cc2670>
+  worker_int: <function WorkerInt.worker_int at 0x106cc2790>
+  worker_abort: <function WorkerAbort.worker_abort at 0x106cc28b0>
+  pre_exec: <function PreExec.pre_exec at 0x106cc29d0>
+  pre_request: <function PreRequest.pre_request at 0x106cc2af0>
+  post_request: <function PostRequest.post_request at 0x106cc2b80>
+  child_exit: <function ChildExit.child_exit at 0x106cc2ca0>
+  worker_exit: <function WorkerExit.worker_exit at 0x106cc2dc0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x106cc2ee0>
+  on_exit: <function OnExit.on_exit at 0x106cd0040>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+Starting gunicorn 20.1.0
+Arbiter booted
+Listening at: http://0.0.0.0:5000 (8648)
+Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+Booting worker with pid: 8654
+Booting worker with pid: 8655
+Booting worker with pid: 8656
+Booting worker with pid: 8657
+Booting worker with pid: 8658
+Booting worker with pid: 8659
+Booting worker with pid: 8660
+Booting worker with pid: 8661
+Booting worker with pid: 8662
+Booting worker with pid: 8663
+Booting worker with pid: 8664
+Booting worker with pid: 8665
+Booting worker with pid: 8666
+Booting worker with pid: 8667
+Booting worker with pid: 8668
+Booting worker with pid: 8669
+16 workers
+Handling signal: int
+Worker exiting (pid: 8662)
+Worker exiting (pid: 8661)
+Worker exiting (pid: 8663)
+Worker exiting (pid: 8666)
+Worker exiting (pid: 8669)
+Worker exiting (pid: 8660)
+Worker exiting (pid: 8658)
+Worker exiting (pid: 8655)
+Worker exiting (pid: 8664)
+Worker exiting (pid: 8659)
+Worker exiting (pid: 8667)
+Worker exiting (pid: 8654)
+Worker exiting (pid: 8668)
+Worker exiting (pid: 8665)
+Worker exiting (pid: 8657)
+Worker exiting (pid: 8656)
+Shutting down: Master

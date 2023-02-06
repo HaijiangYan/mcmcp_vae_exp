@@ -12,6 +12,7 @@ from selenium.common.exceptions import TimeoutException
 from dallinger.bots import BotBase
 from dallinger.experiment import Experiment, experiment_route
 from dallinger.networks import Chain
+from dallinger.models import Participant, Node
 
 
 class MCMCP(Experiment):
@@ -32,13 +33,18 @@ class MCMCP(Experiment):
 
         self.models = models
         self.experiment_repeats = 2
-        self.trials_per_participant = 20
+        self.trials_per_participant = 7
+        self.catch = [2, 5, 10]  # in which trial the catch trial occurs
+        self.human_chosen = None
         if session:
             self.setup()
 
     def create_node(self, network, participant):
         """Create a node for a participant."""
-        return self.models.MCMCPAgent(network=network, participant=participant)
+        if self.human_chosen in self.catch: 
+            return self.models.Catcher(network=network, participant=participant)
+        else:
+            return self.models.MCMCPAgent(network=network, participant=participant)
 
     def setup(self):
         """Setup the networks."""
@@ -53,9 +59,11 @@ class MCMCP(Experiment):
         return Chain(max_size=1000)
 
     def get_network_for_participant(self, participant):
-        # human_nodes = Node.query.filter_by(participant_id=participant.id, human=True).all()
-        human_chosen = [i for i in participant.nodes(failed="all") if i.human]
-        if len(human_chosen) < self.trials_per_participant:
+        # self.human_chosen = Node.query.filter_by(participant_id=participant.id, human=True).count()
+        self.human_chosen = len([i for i in participant.nodes(failed="all") if i.human])
+        # human_decisions = [i for i in participant.nodes(failed="all") if i.human]
+        # self.human_chosen = len(human_decisions)
+        if self.human_chosen < self.trials_per_participant:
             return random.choice(self.networks())
         else:
             return None
@@ -71,11 +79,11 @@ class MCMCP(Experiment):
     def data_check(self, participant):
         """Make sure each trial contains exactly one chosen info."""
         infos = participant.infos()
-        return len([info for info in infos if info.chosen]) * 2 == len(infos)
+        return len([info for info in infos if info.chosen]) * 2 < len(infos)
 
-    @experiment_route("/choice/<int:node_id>/<int:choice>/<int:human>", methods=["POST"])
+    @experiment_route("/choice/<int:node_id>/<int:choice>/<int:human>/<int:rt>", methods=["POST"])
     @classmethod
-    def choice(cls, node_id, choice, human):
+    def choice(cls, node_id, choice, human, rt):
         from .models import Agent
         from dallinger import db
 
@@ -84,28 +92,56 @@ class MCMCP(Experiment):
             node = Agent.query.get(node_id)
             infos = node.infos()
 
-            if choice == 0:
-                info = min(infos, key=attrgetter("id"))
-            elif choice == 1:
-                info = max(infos, key=attrgetter("id"))
-            else:
-                raise ValueError("Choice must be 1 or 0")
+            if node.type == 'MCMCP_agent':
+                if choice == 0:
+                    info = min(infos, key=attrgetter("id"))
+                elif choice == 1:
+                    info = max(infos, key=attrgetter("id"))
+                else:
+                    raise ValueError("Choice must be 1 or 0")
 
-            info.chosen = True
+                info.chosen = True
 
-            if human == 1:
-                info.human = True
-                node.human = True
-            elif human == 0:
-                info.human = False
-            else:
-                raise ValueError("human must be 1 or 0")
+                if human == 1:
+                    info.human = True
+                    node.human = True
+                    node.response_time = rt
+                elif human == 0:
+                    info.human = False
+                else:
+                    raise ValueError("human must be 1 or 0")
 
-            exp.save()
+                exp.save()
+                return Response(status=200, mimetype="application/json")
+            elif node.type == 'Catcher':
+                if choice == 0:
+                    node.human = True
+                    node.response_time = rt
+                    exp.save()
+                    return Response(status=200, mimetype="application/json")
+                else: 
+                    node.human = False
+                    exp.save()
+                    return Response(status=403, mimetype="application/json")  # tell frontend that particioant failed the catcher
 
-            return Response(status=200, mimetype="application/json")
+
         except Exception:
             return Response(status=403, mimetype="application/json")
+
+
+    @experiment_route("/busy", methods=["GET"])
+    @classmethod
+    def anyone_working(cls):
+        anyone_working = Participant.query.filter_by(status = 'working').one_or_none()
+
+        if anyone_working:
+            busy = '1'
+        else:
+            busy = '0'
+
+        return busy
+
+
 
 
 class Bot(BotBase):
