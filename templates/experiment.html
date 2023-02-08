@@ -7,14 +7,12 @@
 {% block body %}
     <div class="main_div">
         <div id="stimulus">
-            <h1>Who is happier?</h1>
-            <img id="img1" src="" width="170" height="160"> &nbsp; &nbsp; &nbsp; &nbsp;
-            <img id="img2" src="" width="170" height="160">
+            <h1></h1>
+            <img id="img1" src="" width="170" height="170"> 
+            <img id="img2" src="" width="170" height="170">
             
             <div>
-                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                <button type="button" class="btn btn-primary submit-response" id="left_button" onClick="submit_response(0);">Left</button>
-                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                <button type="button" class="btn btn-primary submit-response" id="left_button" onClick="submit_response(0);">Left </button>
                 <button type="button" class="btn btn-primary submit-response" id="right_button" onClick="submit_response(1);">Right</button>
             </div>
         </div>
@@ -30,7 +28,13 @@
 
 {% block scripts %}
     <script>
-        // paper = Raphael(0, 0, 800, 300);
         create_agent();
+
+        // window.onbeforeunload=function(){
+        //     return 'Please do not leave'
+        // }
+        // window.onunload=function(){
+        //     dallinger.submitAssignment()
+        // }
     </script>
 {% endblock %}

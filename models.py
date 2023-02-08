@@ -79,20 +79,20 @@ class Catcher(Agent):
 
     @hybrid_property
     def human(self):
-        """Use property1 to store whether one is focused."""
+        """Use property3 to store whether one is focused."""
         try:
             return bool(self.property1)
         except TypeError:
             return None
 
     @human.setter
-    def human(self, catch):
-        """Assign focus to property1."""
-        self.property1 = repr(catch)
+    def human(self, human):
+        """Assign focus to property3."""
+        self.property1 = repr(human)
 
     @human.expression
     def human(self):
-        """Retrieve human via property1."""
+        """Retrieve human via property3."""
         return cast(self.property1, Boolean)
 
     # Node-property2

@@ -1,19 +1,36 @@
 var my_node_id;
+var my_network_id;  // 0-happy, 1-sad
 
 // Create the agent.
 create_agent = function() {
   dallinger.createAgent()
     .done(function (resp) {
+      // console.log('0')
       my_node_id = resp.node.id;
 
       if (resp.node.type === 'MCMCP_agent') {
       get_infos();  
       } else {
-      document.getElementById('img1').setAttribute( 'src', "static/images/236.jpg");
-      document.getElementById('img2').setAttribute( 'src', "static/images/241.jpg");
-      sides_switched = 0;
-      start = new Date().getTime();
-      $(".submit-response").attr('disabled', false);
+        sides_switched = Math.random() < 0.5; 
+
+        if (my_network_id === 0) {
+          if (sides_switched === false)
+          {$('#img1').attr( 'src', "static/images/236.jpg");  // happy
+          $('#img2').attr( 'src', "static/images/241.jpg");}  // sad
+            else 
+          {$('#img2').attr( 'src', "static/images/236.jpg");  // happy
+          $('#img1').attr( 'src', "static/images/241.jpg");}
+        } else {
+          if (sides_switched === true)
+          {$('#img1').attr( 'src', "static/images/236.jpg");  // happy
+          $('#img2').attr( 'src', "static/images/241.jpg");}  // sad
+            else 
+          {$('#img2').attr( 'src', "static/images/236.jpg");  // happy
+          $('#img1').attr( 'src', "static/images/241.jpg");}
+        }
+      
+        start = new Date().getTime();
+        $(".submit-response").attr('disabled', false);
       }
     })
     .fail(function (rejection) {
@@ -22,6 +39,7 @@ create_agent = function() {
         dallinger.allowExit();
         dallinger.goToPage('questionnaire');
       } else {
+        console.log(0);
         dallinger.error(rejection);
       }
     });
@@ -30,6 +48,15 @@ create_agent = function() {
 get_infos = function() {
   dallinger.getInfos(my_node_id)
     .done(function (resp) {
+      // console.log(resp)
+      if (resp.infos[0].network_id <= 3) {
+        $('h1').html("Who is <b id='change1'>happier</b>?");
+        my_network_id = 0;
+      } else {
+        $('h1').html("Who is <b id='change2'>sadder</b>?");
+        my_network_id = 1;
+      }
+
       sides_switched = Math.random() < 0.5;  //randomly switch the side
 
       animal_0 = JSON.parse(resp.infos[0].contents);
@@ -61,9 +88,9 @@ get_infos = function() {
               });
           }
         },
-        error: function () {
-            console.log('error!');
-            create_agent();
+      error: function () {
+          console.log(1);
+          create_agent();
         }
     });
     });
@@ -85,10 +112,11 @@ submit_response = function(choice) {
     .fail(function (rejection) {
       // A 403 is our signal that it's time to go to the questionnaire
       if (rejection.status === 403) {
-        window.alert("Sorry, you are not focusing on the study, so you cannot move on this time. Please click 'OK' below to leave this page");
+        window.alert("Sorry, you are not focusing on the study, so you cannot go on. Please click 'OK' below to leave this page");
         dallinger.allowExit();
         dallinger.goToPage('questionnaire');}
        else {
+        console.log(2)
         dallinger.error(rejection);
       }
      })
@@ -108,11 +136,11 @@ drawAnimal = function (animal_left, animal_right) {
       // dataType: 'json',
     success: function (resp) {
         // console.log(resp)
-      document.getElementById('img1').setAttribute( 'src', resp.left);
-      document.getElementById('img2').setAttribute( 'src', resp.right);
+        $('#img1').attr( 'src', resp.left);
+        $('#img2').attr( 'src', resp.right);
     },
     error: function () {
-        console.log('error!')
+        console.log(3)
     }
   });
 };

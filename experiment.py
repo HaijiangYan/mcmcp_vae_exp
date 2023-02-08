@@ -12,7 +12,7 @@ from selenium.common.exceptions import TimeoutException
 from dallinger.bots import BotBase
 from dallinger.experiment import Experiment, experiment_route
 from dallinger.networks import Chain
-from dallinger.models import Participant, Node
+from dallinger.models import Participant
 
 
 class MCMCP(Experiment):
@@ -32,9 +32,10 @@ class MCMCP(Experiment):
         from . import models
 
         self.models = models
-        self.experiment_repeats = 2
-        self.trials_per_participant = 7
-        self.catch = [2, 5, 10]  # in which trial the catch trial occurs
+        self.happy_chains = 3
+        self.sad_chains = 3
+        self.trials_per_participant = 20  # include catch trials
+        self.catch = [2, 5, 12, 15]  # after how many trials the catch trial occurs, which should not be the first trial in each block
         self.human_chosen = None
         if session:
             self.setup()
@@ -49,22 +50,30 @@ class MCMCP(Experiment):
     def setup(self):
         """Setup the networks."""
         if not self.networks():
-            super(MCMCP, self).setup()
+            for _ in range(self.happy_chains):
+                network = self.create_network()
+                network.role = "happy"
+                self.session.add(network)
+            for _ in range(self.sad_chains):
+                network = self.create_network()
+                network.role = "sad"
+                self.session.add(network)
+            self.session.commit()
+
             for net in self.networks():
                 self.models.AnimalSource(network=net)
             self.session.commit()
 
     def create_network(self):
         """Create a new network."""
-        return Chain(max_size=1000)
+        return Chain(max_size=100000)
 
     def get_network_for_participant(self, participant):
-        # self.human_chosen = Node.query.filter_by(participant_id=participant.id, human=True).count()
         self.human_chosen = len([i for i in participant.nodes(failed="all") if i.human])
-        # human_decisions = [i for i in participant.nodes(failed="all") if i.human]
-        # self.human_chosen = len(human_decisions)
-        if self.human_chosen < self.trials_per_participant:
-            return random.choice(self.networks())
+        if self.human_chosen < self.trials_per_participant // 2:
+            return random.choice(self.networks(role='happy'))
+        elif self.human_chosen >= self.trials_per_participant // 2 and self.human_chosen < self.trials_per_participant:
+            return random.choice(self.networks(role='sad'))
         else:
             return None
 
@@ -77,9 +86,9 @@ class MCMCP(Experiment):
         node.receive()
 
     def data_check(self, participant):
-        """Make sure each trial contains exactly one chosen info."""
+        """Make sure each trial contains exactly one chosen info, if not, labeled as bad data and do another recruitment automatically."""
         infos = participant.infos()
-        return len([info for info in infos if info.chosen]) * 2 < len(infos)
+        return len([info for info in infos if info.chosen]) * 2 + len(self.catch) >= len(infos)
 
     @experiment_route("/choice/<int:node_id>/<int:choice>/<int:human>/<int:rt>", methods=["POST"])
     @classmethod
@@ -132,14 +141,12 @@ class MCMCP(Experiment):
     @experiment_route("/busy", methods=["GET"])
     @classmethod
     def anyone_working(cls):
-        anyone_working = Participant.query.filter_by(status = 'working').one_or_none()
+        anyone_working = Participant.query.filter_by(status = 'working').first()
 
-        if anyone_working:
-            busy = '1'
+        if anyone_working == None:
+            return Response(status=200, mimetype="application/json")
         else:
-            busy = '0'
-
-        return busy
+            return Response(status=403, mimetype="application/json")
 
 
 

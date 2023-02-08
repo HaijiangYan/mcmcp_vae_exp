@@ -38,21 +38,18 @@
 
         dallinger.get('/busy')
             .done(function(resp) {
-                console.log(resp)
-                if (resp === 0) {
                   popup = window.open(
                     consentURL,
                     'Popup',
-                    'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=1024,height=768'
-                );  
-                } else {
+                    'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=1024,height=768');  
+            })
+            .fail(function (rejection) {
                     popup = window.open(
                     busyURL,
                     'Popup',
                     'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=1024,height=768'
                 ); 
-                }
-            })
+                })
 
         
         event.target.setAttribute("disabled", "");
