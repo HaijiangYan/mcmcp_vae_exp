@@ -185,12 +185,12 @@ class AnimalInfo(Info):
 
         super(AnimalInfo, self).__init__(origin, contents, **kwargs)
 
-    happy_cov_mat = array([
-        [0.23980569, 0.03504322, 0.06949917], 
-        [0.03504322, 0.18401163, 0.09870955], 
-        [0.06949917, 0.09870955, 0.24646653]
+    cov_mat = array([
+        [0.25, 0, 0], 
+        [0, 0.2, 0], 
+        [0, 0, 0.25]
         ])
-    happy_prop_cov = (happy_cov_mat / 2) * (2.38 * 2.38 / 3)  # estimated covariance fxgx multiplied by the scale factor
+    prop_cov = cov_mat * (2.38 * 2.38 / 2)  # estimated covariance fxgx multiplied by the scale factor
 
     def perturbed_contents(self):
         """Perturb the given animal."""
@@ -198,14 +198,13 @@ class AnimalInfo(Info):
 
         # rand = random.uniform(0, 1)
         # if rand >= 0.1:
-        proposal = multivariate_normal([animal['x'], animal['y'], animal['z']], self.happy_prop_cov, 1)
+        proposal = multivariate_normal([animal['x'], animal['y'], animal['z']], self.prop_cov, 1)
         for n, prop in enumerate(animal.keys()):
             animal[prop] = proposal[0, n]
         # else:
             # for prop, prop_value in animal.items():
                 # jittered = random.uniform(-5, 5)  # 10% uniform proposal
                 # animal[prop] = jittered
-
         return json.dumps(animal)
 
 

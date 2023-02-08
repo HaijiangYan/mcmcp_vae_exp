@@ -1,5 +1,5 @@
 var my_node_id;
-var my_network_id;  // 0-happy, 1-sad
+var my_network_id;  // 1-happy, 2-sad
 
 // Create the agent.
 create_agent = function() {
@@ -13,7 +13,7 @@ create_agent = function() {
       } else {
         sides_switched = Math.random() < 0.5; 
 
-        if (my_network_id === 0) {
+        if (my_network_id === 1) {
           if (sides_switched === false)
           {$('#img1').attr( 'src', "static/images/236.jpg");  // happy
           $('#img2').attr( 'src', "static/images/241.jpg");}  // sad
@@ -39,7 +39,7 @@ create_agent = function() {
         dallinger.allowExit();
         dallinger.goToPage('questionnaire');
       } else {
-        console.log(0);
+        // console.log(0);
         dallinger.error(rejection);
       }
     });
@@ -51,10 +51,10 @@ get_infos = function() {
       // console.log(resp)
       if (resp.infos[0].network_id <= 3) {
         $('h1').html("Who is <b id='change1'>happier</b>?");
-        my_network_id = 0;
+        my_network_id = 1;
       } else {
         $('h1').html("Who is <b id='change2'>sadder</b>?");
-        my_network_id = 1;
+        my_network_id = 2;
       }
 
       sides_switched = Math.random() < 0.5;  //randomly switch the side
@@ -63,7 +63,7 @@ get_infos = function() {
       animal_1 = JSON.parse(resp.infos[1].contents);
 
       $.ajax({
-        url: 'https://mcmcp-vae.herokuapp.com/fx/' + 1,  // 'index' here refers to face with a specific emotion
+        url: 'https://mcmcp-vae.herokuapp.com/fx/' + my_network_id,  // 'my_network_id' here also refers to face with a specific emotion
         method: 'POST',
         data: `{"data": [[${animal_0.x}, ${animal_0.y}, ${animal_0.z}], [${animal_1.x}, ${animal_1.y}, ${animal_1.z}]]}`,
         success: function (resp) {
@@ -89,7 +89,7 @@ get_infos = function() {
           }
         },
       error: function () {
-          console.log(1);
+          // console.log(1);
           create_agent();
         }
     });
@@ -112,11 +112,11 @@ submit_response = function(choice) {
     .fail(function (rejection) {
       // A 403 is our signal that it's time to go to the questionnaire
       if (rejection.status === 403) {
-        window.alert("Sorry, you are not focusing on the study, so you cannot go on. Please click 'OK' below to leave this page");
+        window.alert("Sorry! you are not focusing on the study, so you cannot go on. Please click 'OK' below to leave this page");
         dallinger.allowExit();
         dallinger.goToPage('questionnaire');}
        else {
-        console.log(2)
+        // console.log(2)
         dallinger.error(rejection);
       }
      })
@@ -140,7 +140,7 @@ drawAnimal = function (animal_left, animal_right) {
         $('#img2').attr( 'src', resp.right);
     },
     error: function () {
-        console.log(3)
+        console.log('error!')
     }
   });
 };

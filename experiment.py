@@ -14,6 +14,8 @@ from dallinger.experiment import Experiment, experiment_route
 from dallinger.networks import Chain
 from dallinger.models import Participant
 
+import datetime
+
 
 class MCMCP(Experiment):
     """Define the structure of the experiment."""
@@ -146,7 +148,12 @@ class MCMCP(Experiment):
         if anyone_working == None:
             return Response(status=200, mimetype="application/json")
         else:
-            return Response(status=403, mimetype="application/json")
+            if datetime.datetime.now() - anyone_working.creation_time < datetime.timedelta(hours=14):
+                return Response(status=403, mimetype="application/json")
+            else:
+                # kick him off
+                return Response(status=200, mimetype="application/json")
+
 
 
 
@@ -169,3 +176,9 @@ class Bot(BotBase):
                 time.sleep(1.0)
         except TimeoutException:
             return False
+
+
+
+
+
+
