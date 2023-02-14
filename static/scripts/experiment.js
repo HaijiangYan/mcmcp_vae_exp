@@ -107,18 +107,21 @@ submit_response = function(choice) {
 
   dallinger.post('/choice/' + my_node_id + '/' + choice + '/' + 1 + '/' + response_time)
     .done(function(resp) {
-      create_agent();
+      if (resp.result === 'agent' || resp.result === 'catch_right'){
+        create_agent();
+      } else if (resp.result === 'catch_wrong2'){
+        console.log(resp)
+        window.alert("Sorry! you are not focusing on the study, so you cannot go on. Please click 'OK' below to leave this page.");
+        dallinger.allowExit();
+        dallinger.goToPage('questionnaire');
+      } else {
+        console.log(resp)
+        window.alert("You are not focusing on the study. Please try to concentrate and click 'OK' below to move on!");
+        create_agent();
+      }
     })
     .fail(function (rejection) {
-      // A 403 is our signal that it's time to go to the questionnaire
-      if (rejection.status === 403) {
-        window.alert("Sorry! you are not focusing on the study, so you cannot go on. Please click 'OK' below to leave this page");
-        dallinger.allowExit();
-        dallinger.goToPage('questionnaire');}
-       else {
-        // console.log(2)
-        dallinger.error(rejection);
-      }
+      dallinger.error(rejection);
      })
 };
 

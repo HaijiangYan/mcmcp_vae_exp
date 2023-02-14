@@ -12,13 +12,16 @@ from selenium.common.exceptions import TimeoutException
 from dallinger.bots import BotBase
 from dallinger.experiment import Experiment, experiment_route
 from dallinger.networks import Chain
-from dallinger.models import Participant
+from dallinger.models import Participant, Node
 
-import datetime
+from datetime import datetime, timezone
+from . import models
 
 
 class MCMCP(Experiment):
     """Define the structure of the experiment."""
+
+    participant_constructor = models.Participant_with_timezone
 
     def __init__(self, session=None):
         """Call the same function in the super (see experiments.py in dallinger).
@@ -123,17 +126,25 @@ class MCMCP(Experiment):
                     raise ValueError("human must be 1 or 0")
 
                 exp.save()
-                return Response(status=200, mimetype="application/json")
+                return {'result': 'agent'}
             elif node.type == 'Catcher':
                 if choice == 0:
                     node.human = True
                     node.response_time = rt
                     exp.save()
-                    return Response(status=200, mimetype="application/json")
+                    return {'result': 'catch_right'}
                 else: 
-                    node.human = False
-                    exp.save()
-                    return Response(status=403, mimetype="application/json")  # tell frontend that particioant failed the catcher
+                    my_node = Node.query.filter_by(participant_id=node.participant_id).all()
+                    if len([i for i in my_node if i.cat]) == 0:
+                        node.human = False
+                        node.cat = True
+                        exp.save()
+                        return {'result': 'catch_wrong1'}  # tell frontend that particioant failed the catcher
+                    else:
+                        node.human = False
+                        node.cat = True
+                        exp.save()
+                        return {'result': 'catch_wrong2'}
 
 
         except Exception:
@@ -146,13 +157,12 @@ class MCMCP(Experiment):
         anyone_working = Participant.query.filter_by(status = 'working').first()
 
         if anyone_working == None:
-            return Response(status=200, mimetype="application/json")
+            return {'result': 'empty'}
         else:
-            if datetime.datetime.now() - anyone_working.creation_time < datetime.timedelta(hours=14):
-                return Response(status=403, mimetype="application/json")
+            if datetime.utcnow().replace(tzinfo=timezone.utc).timestamp() - float(anyone_working.utc) < 1000:
+                return {'result': 'working'}
             else:
-                # kick him off
-                return Response(status=200, mimetype="application/json")
+                return {'result': anyone_working.id}
 
 
 

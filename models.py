@@ -8,8 +8,40 @@ from sqlalchemy.sql.expression import cast
 
 from dallinger.models import Info
 from dallinger.models import Transformation
+from dallinger.models import Participant
 from dallinger.nodes import Agent
 from dallinger.nodes import Source
+
+from datetime import datetime, timezone
+
+
+class Participant_with_timezone(Participant):
+    __mapper_args__ = {"polymorphic_identity": "ppt_p1_utc"}
+
+    @hybrid_property
+    def utc(self):
+        """Use property1 to store whether a chosen info was by human (True-human)."""
+        try:
+            return str(self.property1)
+        except TypeError:
+            return None
+
+    @utc.setter
+    def utc(self, utc):
+        """Assign human to property1."""
+        self.property1 = repr(utc)
+
+    @utc.expression
+    def utc(self):
+        """Retrieve human via property1."""
+        return cast(self.property1, str)
+
+    def __init__(self, recruiter_id, worker_id, assignment_id, hit_id, mode, fingerprint_hash=None, entry_information=None):
+        super().__init__(recruiter_id, worker_id, assignment_id, hit_id, mode, fingerprint_hash, entry_information)
+        # self.utc = datetime.utcnow()
+        ts = datetime.utcnow().replace(tzinfo=timezone.utc).timestamp()
+        self.utc = ts
+
 
 
 class MCMCPAgent(Agent):
@@ -64,6 +96,24 @@ class MCMCPAgent(Agent):
         """Retrieve RT via property2."""
         return cast(self.property2, int)
 
+    @hybrid_property
+    def cat(self):
+        """Use property3 to store whether one is focused."""
+        try:
+            return bool(self.property3)
+        except TypeError:
+            return None
+
+    @cat.setter
+    def cat(self, cat):
+        """Assign focus to property3."""
+        self.property3 = repr(cat)
+
+    @cat.expression
+    def cat(self):
+        """Retrieve human via property3."""
+        return cast(self.property3, Boolean)
+
 
 class Catcher(Agent):
 
@@ -113,6 +163,24 @@ class Catcher(Agent):
     def response_time(self):
         """Retrieve RT via property2."""
         return cast(self.property2, int)
+
+    @hybrid_property
+    def cat(self):
+        """Use property3 to store whether one is focused."""
+        try:
+            return bool(self.property3)
+        except TypeError:
+            return None
+
+    @cat.setter
+    def cat(self, cat):
+        """Assign focus to property3."""
+        self.property3 = repr(cat)
+
+    @cat.expression
+    def cat(self):
+        """Retrieve human via property3."""
+        return cast(self.property3, Boolean)
 
 
 class AnimalSource(Source):
