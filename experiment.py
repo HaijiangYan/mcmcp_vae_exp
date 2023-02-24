@@ -16,6 +16,7 @@ from dallinger.models import Participant, Node
 
 from datetime import datetime, timezone
 from . import models
+from math import ceil
 
 
 class MCMCP(Experiment):
@@ -37,17 +38,19 @@ class MCMCP(Experiment):
         from . import models
 
         self.models = models
-        self.happy_chains = 3
-        self.sad_chains = 3
-        self.trials_per_participant = 20  # include catch trials
-        self.catch = [2, 5, 12, 15]  # after how many trials the catch trial occurs, which should not be the first trial in each block
+        self.happy_chains = 68
+        self.sad_chains = 68  # start here
+        self.trials_per_participant = 20 + 12  # 300 trials plus catch trials
+        self.catch = [2, 100, 200, 250]  # after how many trials the catch trial occurs, which should not be the first trial in each block
+        self.predict_1 = [5, 11, 175, 260]
+        self.predict_2 = [7, 145, 210, 290]
         self.human_chosen = None
         if session:
             self.setup()
 
     def create_node(self, network, participant):
         """Create a node for a participant."""
-        if self.human_chosen in self.catch: 
+        if self.human_chosen in self.catch + self.predict_1 + self.predict_2: 
             return self.models.Catcher(network=network, participant=participant)
         else:
             return self.models.MCMCPAgent(network=network, participant=participant)
@@ -55,18 +58,33 @@ class MCMCP(Experiment):
     def setup(self):
         """Setup the networks."""
         if not self.networks():
-            for _ in range(self.happy_chains):
+            for i in range(self.happy_chains+2):
                 network = self.create_network()
-                network.role = "happy"
+                network.role = f"happy_{int(ceil((i+1)/2))}"
+                if i == self.happy_chains:
+                    network = self.create_network()
+                    network.role = "happy_predictor_1"
+                if i == self.happy_chains+1:
+                    network = self.create_network()
+                    network.role = "happy_predictor_2"
                 self.session.add(network)
-            for _ in range(self.sad_chains):
+            for i in range(self.sad_chains+2):
                 network = self.create_network()
-                network.role = "sad"
+                network.role = f"sad_{int(ceil((i+1)/2))}"
+                if i == self.sad_chains:
+                    network = self.create_network()
+                    network.role = "sad_predictor_1"
+                if i == self.happy_chains+1:
+                    network = self.create_network()
+                    network.role = "sad_predictor_2"
                 self.session.add(network)
             self.session.commit()
 
             for net in self.networks():
-                self.models.AnimalSource(network=net)
+                if net.role[0] == 'h':
+                    self.models.HappySource(network=net)
+                else:
+                    self.models.SadSource(network=net)
             self.session.commit()
 
     def create_network(self):
@@ -75,10 +93,20 @@ class MCMCP(Experiment):
 
     def get_network_for_participant(self, participant):
         self.human_chosen = len([i for i in participant.nodes(failed="all") if i.human])
-        if self.human_chosen < self.trials_per_participant // 2:
-            return random.choice(self.networks(role='happy'))
-        elif self.human_chosen >= self.trials_per_participant // 2 and self.human_chosen < self.trials_per_participant:
-            return random.choice(self.networks(role='sad'))
+        if self.human_chosen <= self.trials_per_participant // 2:
+            if self.human_chosen in self.predict_1:
+                return random.choice(self.networks(role='happy_predictor_1'))
+            elif self.human_chosen in self.predict_2:
+                return random.choice(self.networks(role='happy_predictor_2'))
+            else:
+                return random.choice(self.networks(role=f'happy_{participant.id}'))
+        elif self.human_chosen > self.trials_per_participant // 2 and self.human_chosen < self.trials_per_participant:
+            if self.human_chosen in self.predict_1:
+                return random.choice(self.networks(role='sad_predictor_1'))
+            elif self.human_chosen in self.predict_2:
+                return random.choice(self.networks(role='sad_predictor_2'))
+            else:
+                return random.choice(self.networks(role=f'sad_{participant.id}'))
         else:
             return None
 
@@ -126,26 +154,17 @@ class MCMCP(Experiment):
                     raise ValueError("human must be 1 or 0")
 
                 exp.save()
-                return {'result': 'agent'}
+                return Response(status=200, mimetype="application/json")
             elif node.type == 'Catcher':
                 if choice == 0:
                     node.human = True
                     node.response_time = rt
-                    exp.save()
-                    return {'result': 'catch_right'}
                 else: 
-                    my_node = Node.query.filter_by(participant_id=node.participant_id).all()
-                    if len([i for i in my_node if i.cat]) == 0:
-                        node.human = False
-                        node.cat = True
-                        exp.save()
-                        return {'result': 'catch_wrong1'}  # tell frontend that particioant failed the catcher
-                    else:
-                        node.human = False
-                        node.cat = True
-                        exp.save()
-                        return {'result': 'catch_wrong2'}
+                    node.human = False
+                    node.response_time = rt
 
+                exp.save()
+                return Response(status=200, mimetype="application/json")
 
         except Exception:
             return Response(status=403, mimetype="application/json")
@@ -159,7 +178,7 @@ class MCMCP(Experiment):
         if anyone_working == None:
             return {'result': 'empty'}
         else:
-            if datetime.utcnow().replace(tzinfo=timezone.utc).timestamp() - float(anyone_working.utc) < 1000:
+            if datetime.utcnow().replace(tzinfo=timezone.utc).timestamp() - float(anyone_working.utc) < 7200:
                 return {'result': 'working'}
             else:
                 return {'result': anyone_working.id}

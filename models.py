@@ -164,36 +164,31 @@ class Catcher(Agent):
         """Retrieve RT via property2."""
         return cast(self.property2, int)
 
-    @hybrid_property
-    def cat(self):
-        """Use property3 to store whether one is focused."""
-        try:
-            return bool(self.property3)
-        except TypeError:
-            return None
 
-    @cat.setter
-    def cat(self, cat):
-        """Assign focus to property3."""
-        self.property3 = repr(cat)
+class HappySource(Source):
+    """A source that transmits happy face."""
 
-    @cat.expression
-    def cat(self):
-        """Retrieve human via property3."""
-        return cast(self.property3, Boolean)
-
-
-class AnimalSource(Source):
-    """A source that transmits animal shapes."""
-
-    __mapper_args__ = {"polymorphic_identity": "animal_source"}
+    __mapper_args__ = {"polymorphic_identity": "happy_source"}
 
     def create_information(self):
         """Create a new Info.
 
-        transmit() -> _what() -> create_information().
+        transmit() -> _what() -> create_information()
         """
-        return AnimalInfo(origin=self, contents=None)
+        return AnimalInfo(origin=self, contents=None, start_point='happy')
+
+
+class SadSource(Source):
+    """A source that transmits sad face."""
+
+    __mapper_args__ = {"polymorphic_identity": "sad_source"}
+
+    def create_information(self):
+        """Create a new Info.
+
+        transmit() -> _what() -> create_information()
+        """
+        return AnimalInfo(origin=self, contents=None, start_point='sad')
 
 
 class AnimalInfo(Info):
@@ -238,17 +233,26 @@ class AnimalInfo(Info):
         return cast(self.property2, Boolean)
 
 
-    properties = {
-        "x": [-5.0, 5.0],
-        "y": [-5.0, 5.0],
-        "z": [-5.0, 5.0],
+    happy_start = {
+        "x": [-1.0, 1.0],
+        "y": [-1.0, 1.0],
+        "z": [-1.0, 1.0],
+    }
+    sad_start = {
+        "x": [1.0, 2.0],
+        "y": [1.0, 2.0],
+        "z": [1.0, 2.0],
     }
 
-    def __init__(self, origin, contents=None, **kwargs):
+    def __init__(self, origin, contents=None, start_point='happy', **kwargs):
         if contents is None:
             data = {}
-            for prop, prop_range in self.properties.items():
-                data[prop] = random.uniform(prop_range[0], prop_range[1])
+            if start_point == 'happy':
+                for prop, prop_range in self.happy_start.items():
+                    data[prop] = random.uniform(prop_range[0], prop_range[1])
+            elif start_point == 'sad':
+                for prop, prop_range in self.sad_start.items():
+                    data[prop] = random.uniform(prop_range[0], prop_range[1])
             contents = json.dumps(data)
 
         super(AnimalInfo, self).__init__(origin, contents, **kwargs)

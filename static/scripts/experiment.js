@@ -1,5 +1,5 @@
 var my_node_id;
-var my_network_id;  // 1-happy, 2-sad
+var emo_target;  // 1-happy, 2-sad
 
 // Create the agent.
 create_agent = function() {
@@ -10,24 +10,49 @@ create_agent = function() {
 
       if (resp.node.type === 'MCMCP_agent') {
       get_infos();  
-      } else {
-        sides_switched = Math.random() < 0.5; 
+      } else if (resp.node.type === 'Catcher') {
+        dallinger.getInfos(my_node_id)
+        .done(function (resp) {
+          if (resp.infos[0].network_id === 69) {
+            $('#img1').attr( 'src', "static/images/left_1.jpg");  // happy predictor
+            $('#img2').attr( 'src', "static/images/right_1.jpg");
+            sides_switched = 0;
 
-        if (my_network_id === 1) {
-          if (sides_switched === false)
-          {$('#img1').attr( 'src', "static/images/236.jpg");  // happy
-          $('#img2').attr( 'src', "static/images/241.jpg");}  // sad
-            else 
-          {$('#img2').attr( 'src', "static/images/236.jpg");  // happy
-          $('#img1').attr( 'src', "static/images/241.jpg");}
-        } else {
-          if (sides_switched === true)
-          {$('#img1').attr( 'src', "static/images/236.jpg");  // happy
-          $('#img2').attr( 'src', "static/images/241.jpg");}  // sad
-            else 
-          {$('#img2').attr( 'src', "static/images/236.jpg");  // happy
-          $('#img1').attr( 'src', "static/images/241.jpg");}
-        }
+          } else if (resp.infos[0].network_id === 70){
+            $('#img1').attr( 'src', "static/images/left_2.jpg");  // happy predictor
+            $('#img2').attr( 'src', "static/images/right_2.jpg");
+            sides_switched = 0;
+
+          } else if (resp.infos[0].network_id === 139){
+            $('#img1').attr( 'src', "static/images/left_3.jpg");  // happy predictor
+            $('#img2').attr( 'src', "static/images/right_3.jpg");
+            sides_switched = 0;
+
+          } else if (resp.infos[0].network_id === 140){
+            $('#img1').attr( 'src', "static/images/left_4.jpg");  // happy predictor
+            $('#img2').attr( 'src', "static/images/right_4.jpg");
+            sides_switched = 0;
+
+          } else {
+            sides_switched = Math.random() < 0.5; 
+            if (emo_target === 1) {
+              if (sides_switched === false)
+              {$('#img1').attr( 'src', "static/images/236.jpg");  // happy
+              $('#img2').attr( 'src', "static/images/241.jpg");}  // sad
+                else 
+              {$('#img2').attr( 'src', "static/images/236.jpg");  // happy
+              $('#img1').attr( 'src', "static/images/241.jpg");}
+            } else {
+              if (sides_switched === true)
+              {$('#img1').attr( 'src', "static/images/236.jpg");  // happy
+              $('#img2').attr( 'src', "static/images/241.jpg");}  // sad
+                else 
+              {$('#img2').attr( 'src', "static/images/236.jpg");  // happy
+              $('#img1').attr( 'src', "static/images/241.jpg");}
+            }
+          }
+        
+        })
       
         start = new Date().getTime();
         $(".submit-response").attr('disabled', false);
@@ -39,7 +64,6 @@ create_agent = function() {
         dallinger.allowExit();
         dallinger.goToPage('questionnaire');
       } else {
-        // console.log(0);
         dallinger.error(rejection);
       }
     });
@@ -49,21 +73,21 @@ get_infos = function() {
   dallinger.getInfos(my_node_id)
     .done(function (resp) {
       // console.log(resp)
-      if (resp.infos[0].network_id <= 3) {
+      if (resp.infos[0].network_id <= 69) {
         $('h1').html("Who is <b id='change1'>happier</b>?");
-        my_network_id = 1;
+        emo_target = 1;
       } else {
         $('h1').html("Who is <b id='change2'>sadder</b>?");
-        my_network_id = 2;
+        emo_target = 2;
       }
-
+      // my_network_id = resp.infos[0].network_id;
       sides_switched = Math.random() < 0.5;  //randomly switch the side
 
       animal_0 = JSON.parse(resp.infos[0].contents);
       animal_1 = JSON.parse(resp.infos[1].contents);
 
       $.ajax({
-        url: 'https://mcmcp-vae.herokuapp.com/fx/' + my_network_id,  // 'my_network_id' here also refers to face with a specific emotion
+        url: 'https://mcmcp-vae.herokuapp.com/fx/' + emo_target,  // 'emo_target' here also refers to face with a specific emotion
         method: 'POST',
         data: `{"data": [[${animal_0.x}, ${animal_0.y}, ${animal_0.z}], [${animal_1.x}, ${animal_1.y}, ${animal_1.z}]]}`,
         success: function (resp) {
@@ -107,19 +131,8 @@ submit_response = function(choice) {
 
   dallinger.post('/choice/' + my_node_id + '/' + choice + '/' + 1 + '/' + response_time)
     .done(function(resp) {
-      if (resp.result === 'agent' || resp.result === 'catch_right'){
         create_agent();
-      } else if (resp.result === 'catch_wrong2'){
-        console.log(resp)
-        window.alert("Sorry! you are not focusing on the study, so you cannot go on. Please click 'OK' below to leave this page.");
-        dallinger.allowExit();
-        dallinger.goToPage('questionnaire');
-      } else {
-        console.log(resp)
-        window.alert("You are not focusing on the study. Please try to concentrate and click 'OK' below to move on!");
-        create_agent();
-      }
-    })
+      })
     .fail(function (rejection) {
       dallinger.error(rejection);
      })
