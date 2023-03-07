@@ -38,24 +38,24 @@
 
         dallinger.get('/busy')
             .done(function(resp) {
-                if(resp.result==='empty'){
+                if(resp.result===0){
                 popup = window.open(
                     consentURL,
                     'Popup',
                     'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=1024,height=768');  
-                } else if(resp.result==='working'){
+                } else if(resp.result===1){
                     popup = window.open(
                     busyURL,
                     'Popup',
                     'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=1024,height=768'
                 ); 
-                } else {
-                    dallinger.post('/worker_complete', {'participant_id': resp.result});
-                    popup = window.open(
-                    consentURL,
-                    'Popup',
-                    'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=1024,height=768'); 
-                }
+                } //else {
+                //     dallinger.post('/worker_complete', {'participant_id': resp.result});
+                //     popup = window.open(
+                //     consentURL,
+                //     'Popup',
+                //     'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=1024,height=768'); 
+                // }
             })
             .fail(function (rejection) {
                     dallinger.error(rejection);
@@ -95,17 +95,17 @@
                                 The sampling Lab at Warwick University is looking for online participants
                                 for a brief psychology experiment. The only requirements
                                 are that you are at least 18 years old and are a fluent English
-                                speaker.  The task will take XXXXX minutes and will pay XXXXX.
+                                speaker.  The task will take 30 minutes.
                             </p>
                             <p>
-                                Please click the "Accept HIT" button to begin the task.
+                                Please click the "Accept task" button to begin the task.
                             </p>
                         {% endblock no_assignment %}
                     {% else %}
                         {% block live %}
                             <h1>Thanks for accepting this task.</h1>
                             <p>
-                                By clicking the following URL link, you will be taken to the experiment,
+                                By clicking the following 'Begin Experiment' button, you will be taken to the experiment,
                                 including complete instructions and an informed consent agreement.
                             </p>
                             <div class="alert alert-warning">

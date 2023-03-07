@@ -232,16 +232,17 @@ class AnimalInfo(Info):
         """Retrieve human via property2."""
         return cast(self.property2, Boolean)
 
-
+    # happy center: [ 1.57248022 -0.99373547 -0.14020095]
+    # sad center: [-0.89223572  0.6654995   0.58393501]
     happy_start = {
-        "x": [-1.0, 1.0],
-        "y": [-1.0, 1.0],
-        "z": [-1.0, 1.0],
+        "x": 1.57248022,
+        "y": -0.99373547,
+        "z": -0.14020095,
     }
     sad_start = {
-        "x": [1.0, 2.0],
-        "y": [1.0, 2.0],
-        "z": [1.0, 2.0],
+        "x": -0.89223572,
+        "y": 0.6654995,
+        "z": 0.58393501,
     }
 
     def __init__(self, origin, contents=None, start_point='happy', **kwargs):
@@ -249,20 +250,19 @@ class AnimalInfo(Info):
             data = {}
             if start_point == 'happy':
                 for prop, prop_range in self.happy_start.items():
-                    data[prop] = random.uniform(prop_range[0], prop_range[1])
+                    data[prop] = random.uniform(prop_range - 0.5, prop_range + 0.5)
             elif start_point == 'sad':
                 for prop, prop_range in self.sad_start.items():
-                    data[prop] = random.uniform(prop_range[0], prop_range[1])
+                    data[prop] = random.uniform(prop_range - 0.5, prop_range + 0.5)
             contents = json.dumps(data)
 
         super(AnimalInfo, self).__init__(origin, contents, **kwargs)
 
-    cov_mat = array([
-        [0.25, 0, 0], 
-        [0, 0.2, 0], 
-        [0, 0, 0.25]
-        ])
-    prop_cov = cov_mat * (2.38 * 2.38 / 2)  # estimated covariance fxgx multiplied by the scale factor
+    prop_cov = array([
+        [1, 0, 0],
+        [0, 1, 0],
+        [0, 0, 1]
+        ])  # estimated covariance fxgx multiplied by the scale factor
 
     def perturbed_contents(self):
         """Perturb the given animal."""
@@ -270,7 +270,10 @@ class AnimalInfo(Info):
 
         # rand = random.uniform(0, 1)
         # if rand >= 0.1:
-        proposal = multivariate_normal([animal['x'], animal['y'], animal['z']], self.prop_cov, 1)
+        if self.network_id <= 70:
+            proposal = multivariate_normal([animal['x'], animal['y'], animal['z']], self.prop_cov * 1.8, 1)
+        else:
+            proposal = multivariate_normal([animal['x'], animal['y'], animal['z']], self.prop_cov * 1.4, 1)
         for n, prop in enumerate(animal.keys()):
             animal[prop] = proposal[0, n]
         # else:

@@ -73,7 +73,7 @@ get_infos = function() {
   dallinger.getInfos(my_node_id)
     .done(function (resp) {
       // console.log(resp)
-      if (resp.infos[0].network_id <= 69) {
+      if (resp.infos[0].network_id <= 70) {
         $('h1').html("Who is <b id='change1'>happier</b>?");
         emo_target = 1;
       } else {
@@ -87,11 +87,11 @@ get_infos = function() {
       animal_1 = JSON.parse(resp.infos[1].contents);
 
       $.ajax({
-        url: 'https://mcmcp-vae.herokuapp.com/fx/' + emo_target,  // 'emo_target' here also refers to face with a specific emotion
+        url: 'https://mcmcp-decoder.herokuapp.com/fx/' + emo_target,  // 'emo_target' here also refers to face with a specific emotion
         method: 'POST',
         data: `{"data": [[${animal_0.x}, ${animal_0.y}, ${animal_0.z}], [${animal_1.x}, ${animal_1.y}, ${animal_1.z}]]}`,
         success: function (resp) {
-          acceptance = resp.density[1] ** 0.8 / (resp.density[1] ** 0.8 + resp.density[0] ** 0.8)
+          acceptance = resp.density[1] / (resp.density[1] + resp.density[0])  //power prior == 1
           
           // console.log(resp.likelyhood[0])
           if (Math.random() < acceptance) {  // option given to human
@@ -122,6 +122,10 @@ get_infos = function() {
 
 submit_response = function(choice) {
   end = new Date().getTime();
+
+  $('#img1').attr( 'src', "static/images/shield.jpg");  //wash off
+  $('#img2').attr( 'src', "static/images/shield.jpg");
+
   if (sides_switched === true) {
     choice = 1 - choice;
   }
@@ -144,7 +148,7 @@ submit_response = function(choice) {
 drawAnimal = function (animal_left, animal_right) {
 
   $.ajax({
-    url: 'https://mcmcp-vae.herokuapp.com',
+    url: 'https://mcmcp-decoder.herokuapp.com',
     method: 'POST',
       // headers: {'Access-Control-Allow-Origin': 'https://haijiangyan.github.io/' },
       // contentType: 'application/json',

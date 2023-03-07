@@ -15,12 +15,13 @@
             <p>The study will not work unless Javascript is enabled on your browser.</p>
             <p>Please enable Javascript then refresh this page.<p>
         </noscript>
-        <h1>Sorry, another participant is doing the task. Please come back later and try again. </h1>
+        <h1>Sorry, </h1>
+        <p>there is another prolific worker performing this task right now, and we can only permit one participant to enter the task each time, So you are redirected to this page. <br>You can leave the page by clicking the 'EXIT' button below and cancel your particiation, or you can leave the page and try to enter again later (but we cannot guarantee your success due to the randomness of other workers' participation, we are very sorry for this!). </p>
         <hr>
         <div class="consent_div text-justify"><small>
             <br>
             {% block reject_button %}
-            <button type="button" class="btn btn-danger btn-lg" onClick="self.close();" style="float: left;">Return later
+            <button type="button" class="btn btn-danger btn-lg" onClick="self.close();" style="float: left;">EXIT
             </button>
             {% endblock reject_button %}
         </div>

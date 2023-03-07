@@ -40,10 +40,10 @@ class MCMCP(Experiment):
         self.models = models
         self.happy_chains = 68
         self.sad_chains = 68  # start here
-        self.trials_per_participant = 20 + 12  # 300 trials plus catch trials
-        self.catch = [2, 100, 200, 250]  # after how many trials the catch trial occurs, which should not be the first trial in each block
-        self.predict_1 = [5, 11, 175, 260]
-        self.predict_2 = [7, 145, 210, 290]
+        self.trials_per_participant = 600 + 12  # 500 trials plus 12 catch trials
+        self.catch = [50, 250, 350, 500]  # after how many trials the catch trial occurs, which should not be the first trial in each block
+        self.predict_1 = [35, 150, 380, 480]
+        self.predict_2 = [80, 200, 420, 550]
         self.human_chosen = None
         if session:
             self.setup()
@@ -93,22 +93,41 @@ class MCMCP(Experiment):
 
     def get_network_for_participant(self, participant):
         self.human_chosen = len([i for i in participant.nodes(failed="all") if i.human])
-        if self.human_chosen <= self.trials_per_participant // 2:
-            if self.human_chosen in self.predict_1:
-                return random.choice(self.networks(role='happy_predictor_1'))
-            elif self.human_chosen in self.predict_2:
-                return random.choice(self.networks(role='happy_predictor_2'))
+        if participant.id % 2 ==1:
+            if self.human_chosen <= self.trials_per_participant // 2:
+                if self.human_chosen in self.predict_1:
+                    return random.choice(self.networks(role='happy_predictor_1'))
+                elif self.human_chosen in self.predict_2:
+                    return random.choice(self.networks(role='happy_predictor_2'))
+                else:
+                    return random.choice(self.networks(role=f'happy_{participant.id}'))
+            elif self.human_chosen > self.trials_per_participant // 2 and self.human_chosen < self.trials_per_participant:
+                if self.human_chosen in self.predict_1:
+                    return random.choice(self.networks(role='sad_predictor_1'))
+                elif self.human_chosen in self.predict_2:
+                    return random.choice(self.networks(role='sad_predictor_2'))
+                else:
+                    return random.choice(self.networks(role=f'sad_{participant.id}'))
             else:
-                return random.choice(self.networks(role=f'happy_{participant.id}'))
-        elif self.human_chosen > self.trials_per_participant // 2 and self.human_chosen < self.trials_per_participant:
-            if self.human_chosen in self.predict_1:
-                return random.choice(self.networks(role='sad_predictor_1'))
-            elif self.human_chosen in self.predict_2:
-                return random.choice(self.networks(role='sad_predictor_2'))
-            else:
-                return random.choice(self.networks(role=f'sad_{participant.id}'))
+                return None
+            
         else:
-            return None
+            if self.human_chosen <= self.trials_per_participant // 2:
+                if self.human_chosen in self.predict_1:
+                    return random.choice(self.networks(role='sad_predictor_1'))
+                elif self.human_chosen in self.predict_2:
+                    return random.choice(self.networks(role='sad_predictor_2'))
+                else:
+                    return random.choice(self.networks(role=f'sad_{participant.id}'))
+            elif self.human_chosen > self.trials_per_participant // 2 and self.human_chosen < self.trials_per_participant:
+                if self.human_chosen in self.predict_1:
+                    return random.choice(self.networks(role='happy_predictor_1'))
+                elif self.human_chosen in self.predict_2:
+                    return random.choice(self.networks(role='happy_predictor_2'))
+                else:
+                    return random.choice(self.networks(role=f'happy_{participant.id}'))
+            else:
+                return None
 
     def add_node_to_network(self, node, network):
         """When a node is created it is added to the chain (see Chain in networks.py)
@@ -121,7 +140,8 @@ class MCMCP(Experiment):
     def data_check(self, participant):
         """Make sure each trial contains exactly one chosen info, if not, labeled as bad data and do another recruitment automatically."""
         infos = participant.infos()
-        return len([info for info in infos if info.chosen]) * 2 + len(self.catch) >= len(infos)
+        return len([info for info in infos if info.chosen]) > 0
+        # return len([info for info in infos if info.chosen]) * 2 + len(self.catch) >= len(infos)
 
     @experiment_route("/choice/<int:node_id>/<int:choice>/<int:human>/<int:rt>", methods=["POST"])
     @classmethod
@@ -173,18 +193,25 @@ class MCMCP(Experiment):
     @experiment_route("/busy", methods=["GET"])
     @classmethod
     def anyone_working(cls):
-        anyone_working = Participant.query.filter_by(status = 'working').first()
+        from .models import Participant
+        from dallinger import db
+        
+        try:
+            exp = MCMCP(db.session)
+            anyone_working = Participant.query.filter_by(status = 'working').one_or_none()
 
-        if anyone_working == None:
-            return {'result': 'empty'}
-        else:
-            if datetime.utcnow().replace(tzinfo=timezone.utc).timestamp() - float(anyone_working.utc) < 7200:
-                return {'result': 'working'}
+            if anyone_working == None:
+                return {'result': 0}
             else:
-                return {'result': anyone_working.id}
-
-
-
+                if datetime.utcnow().replace(tzinfo=timezone.utc).timestamp() - float(anyone_working.utc) < 8400:
+                    return {'result': 1}
+                else:
+                    anyone_working.status = 'submitted'
+                    exp.save()
+                    return {'result': 0}
+            
+        except Exception:
+            return {'result': 1}
 
 
 class Bot(BotBase):

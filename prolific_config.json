@@ -1,9 +1,9 @@
-{"internal_name": "dallinger test", 
+{"internal_name": "dallinger-mcmcp-vae", 
 "prolific_id_option": "not_required", 
-"completion_code": "7EF9FD0D", 
+"completion_code": "HAIPSY01", 
 "completion_option": "url", 
 "device_compatibility": ["desktop"], 
 "eligibility_requirements": 
 [{"attributes": [{"name": "white_list", "value": [ ]}], 
 "_cls": "web.eligibility.models.CustomWhitelistEligibilityRequirement"}], 
-"total_available_places": 1}
+"total_available_places": 3}
