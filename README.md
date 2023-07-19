@@ -1,4 +1,5 @@
 # Markov Chain Monte Carlo with People&Variational Auto-Encoder
 
-Markov Chain Monte Carlo with People&VAE (MCMCP-VAE) is a method for uncovering  mental representations that exploits an equivalence between a model of
-human choice behavior and an element of an MCMC algorithm. 
+VAE-guided Markov Chain Monte Carlo with People (MCMCP-VAE) is a method for accelerating the MCMCP to uncover mental representations. 
+
+This experiment was established based on Dallinger, which is a package for developing online studies in Psychology, Behavioral Science, and Economics.
