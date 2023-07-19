@@ -6,15 +6,19 @@ recruiter = prolific
 [Prolific]
 title = Select the facial expression
 description = Decide which image is a better match to a given facial expression.
-prolific_estimated_completion_minutes = 1
-prolific_maximum_allowed_minutes = 10
-prolific_reward_cents = 10
+prolific_estimated_completion_minutes = 60
+prolific_maximum_allowed_minutes = 140
+prolific_reward_cents = 900
 browser_exclude_rule = MSIE, mobile, tablet
 prolific_recruitment_config = file:prolific_config.json
 
+[MTurk]
+base_payment = 1.00
+duration = 2
+
 [Database]
 database_url = postgresql://postgres@localhost/dallinger
-database_size = mini
+database_size = basic
 
 [Server]
 dyno_type = basic

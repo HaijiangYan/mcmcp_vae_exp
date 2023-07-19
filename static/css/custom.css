@@ -1,8 +1,25 @@
-#stimulus {
-    padding-top: 300px;
+    #stimulus {
+    padding-top: 200px;
+    text-align: center;
 }
 
-button {
-    padding-left: 30px;
-    padding-right: 30px;
+    #img1 {
+    margin-right: 35px;
 }
+    #img2 {
+    margin-left: 35px;
+}
+
+    #left_button {
+    margin-top: 10px;
+    margin-right: 35px;
+width:80px; height:35px;
+}
+    #right_button {
+    margin-top: 10px;
+    margin-left: 35px;
+width:80px; height:35px;
+}
+
+#change1 {text-shadow:2px 2px #FF0000;}
+#change2 {text-shadow:2px 2px #00FF00;}

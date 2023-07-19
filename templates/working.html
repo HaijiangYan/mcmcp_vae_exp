@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+<!--
+  The consent.html displays the text of your IRB-approved
+  consent form.  Even if you are not required to provide
+  a consent form, it is helpful to use this form to
+  describe what people can do if an error comes up, etc...
+
+-->
+
+{% block body %}
+    <div class="main_div">
+        <noscript>
+            <h1>Warning: Javascript is not working on your browser</h1>
+            <p>The study will not work unless Javascript is enabled on your browser.</p>
+            <p>Please enable Javascript then refresh this page.<p>
+        </noscript>
+        <h1>Sorry, </h1>
+        <p>there is another prolific worker performing this task right now, and we can only permit one participant to enter the task each time, So you are redirected to this page. <br>You can leave the page by clicking the 'EXIT' button below and cancel your particiation, or you can leave the page and try to enter again later (but we cannot guarantee your success due to the randomness of other workers' participation, we are very sorry for this!). </p>
+        <hr>
+        <div class="consent_div text-justify"><small>
+            <br>
+            {% block reject_button %}
+            <button type="button" class="btn btn-danger btn-lg" onClick="self.close();" style="float: left;">EXIT
+            </button>
+            {% endblock reject_button %}
+        </div>
+    </div>
+{% endblock %}
